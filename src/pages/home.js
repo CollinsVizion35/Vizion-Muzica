@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SearchArtist from './searchArtist';
+import { AppPass } from '../contexts/AppContext';
+import Player from './player';
 
 import homeIcon from '../imgs/Home.svg';
 import collectionIcon from '../imgs/playlist.svg';
@@ -16,9 +18,10 @@ import Sidebar from './sidebar';
 import '../index.css';
 import { onSnapshot, collection, doc } from 'firebase/firestore';
 import { db } from '../firebase';
-import SearchField from "react-search-field";
-import useSearch from 'react-hook-search';
-
+import NewReleases from './newRelease';
+import Popular from './popular';
+import Header from './header'
+import TopChart from './topCharts';
 
 
 
@@ -26,22 +29,22 @@ const options = [
     {
         id: 0,
         img: homeIcon,
-        navigate: '/dashboard-home'
+        navigate: '/home'
     },
     {
         id: 1,
         img: collectionIcon,
-        navigate: '/dashboard-categories'
+        navigate: '/collection'
     },
     {
         id: 2,
         img: radioIcon,
-        navigate: '/dashboard-my-questions'
+        navigate: '/radio'
     },
     {
         id: 3,
         img: musicVidIcon,
-        navigate: '/MyInfo'
+        navigate: '/musicvideos'
     }
 ];
 
@@ -49,12 +52,12 @@ const options2 = [
     {
         id: 0,
         img: profileIcon,
-        navigate: '/dashboard-settings'
+        navigate: '/profile'
     },
     {
         id: 1,
         img: logoutIcon,
-        navigate: '/dashboard-settings'
+        navigate: '/'
     }
 
 ];
@@ -62,6 +65,30 @@ const options2 = [
 
 const Home = () => {
 
+    const {token,
+        setToken,
+        releases, 
+        setReleases,
+        currentSongIndex, 
+        setCurrentSongIndex,
+        nextSongIndex, 
+        setNextSongIndex,
+        isPlaying, 
+        setIsPlaying,
+        duration, 
+        setDuration,
+        currentTime, 
+        setCurrentTime,
+        percentage, 
+        setPercentage,
+        getCurrDuration,} = AppPass()
+    
+    const [canShow , setCanShow] = useState(false)
+
+    useEffect(()=>{
+        const timer = setTimeout( () => setCanShow(true) , 3000)
+        return () => clearTimeout(timer);
+      })
 
     return (
         <>
@@ -73,13 +100,13 @@ const Home = () => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row min-h-screen'>
+            <div className='bg-[#1D2123] text-white flex flex-row'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
                 <div className='sidebar-lg hidden lg:flex flex-col'>
-                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 rounded-[50px] py-4'>
+                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
                                     <> 
@@ -107,14 +134,32 @@ const Home = () => {
                             })}
                     </div>
                 </div>
-            </div>
 
             
 
-            <div className='Body'>
+            <div className='Body w-[9/10]'>
+                <div className='flex flex-row'>
+                    <Header/>
+                    <TopChart/>
+                </div>
 
+                <div className='flex flex-col'>
+                    <NewReleases/>
+                    <Popular/>
+                </div>
+            </div>
+            
             </div>
         </div>
+
+        <footer className='fixed bottom-0 z-[99999] w-screen left-0'>
+                    {canShow ?  <Player 
+                                currentSongIndex={currentSongIndex}
+                                setCurrentSongIndex={setCurrentSongIndex}
+                                nextSongIndex={nextSongIndex}
+                                releases={releases} 
+                            />  : <> </>}
+                    </footer>
         </>
     )
 }

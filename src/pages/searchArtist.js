@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {SiSpotify} from 'react-icons/si/index'
+import React, { useState } from 'react';
 import axios from 'axios'
 import notAvailable from '../imgs/No-Photo-Available.jpg'
 import { AppPass } from '../contexts/AppContext';
@@ -22,9 +21,10 @@ const SearchArtist = () => {
     
     const searchArtists = async (e) => {
         e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
+        const {data} = await axios.get("https://spotify23.p.rapidapi.com/search/", {
             headers: {
-                'Authorization': 'Bearer ' + token
+                'X-RapidAPI-Key': '6ed6cedd6fmshd8e759bfbb8f31ep15789fjsnb435e620a8a3',
+                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
             },
             params: {
                 q: searchKey,
@@ -65,7 +65,7 @@ const SearchArtist = () => {
                         <img src={searchIcon} onClick={searchArtists} className='w-[20px] absolute top-0 left-0 py-2 ml-3 cursor-pointer' alt='search icon'/>
                     </form>
 
-                    : <h2>Get Da Fuck Out</h2>
+                    : <h2>Loading...</h2>
                     }
                 </div>
 

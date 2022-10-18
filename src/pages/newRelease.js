@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Player from './player';
 
 import {SiSpotify} from 'react-icons/si/index'
 import axios from 'axios'
@@ -7,59 +6,140 @@ import notAvailable from '../imgs/No-Photo-Available.jpg'
 import { AppPass } from '../contexts/AppContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import {Howl, Howler} from 'howler';
 
 
 
 
 const NewReleases = () => {
 
-    const { token } = AppPass()
-    const [canShow , setCanShow] = useState(false)
+    const {token,
+        setToken,
+        releases, 
+        setReleases,
+        currentSongIndex, 
+        setCurrentSongIndex,
+        nextSongIndex, 
+        setNextSongIndex,
+        isPlaying, 
+        setIsPlaying,
+        duration, 
+        setDuration,
+        currentTime, 
+        setCurrentTime,
+        percentage, 
+        setPercentage,
+        getCurrDuration,
+        playerAudioRef,
+        playerImageRef,
+        playerNameRef,
+        playerArtistRef} = AppPass()
 
-    const [releases, setReleases] = useState([])
-    const [currentSongIndex, setCurrentSongIndex] = useState(0)
-    const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
-
-useEffect(() => {
-    const getTracks = async () => {
-        const {data} = await axios.get("https://api.spotify.com/v1/tracks", {
-            headers: {
-                'Authorization': 'Bearer ' + token 
-            },
-            params: {
-                ids: '2wgvxtggKVzPkl0smF2UzI,5UwxpuGHkwiojKDaPC5ZNu,5CTQCPv51aLWpwTbqo8mEL,4vI2KCvXTAPR3vfiWg1J78,4N7AXHRMQYh9GHQd5hE6NP,52oDXfdKV4faAFLnNyf0bl,3PEkfP69a7aMMb8yI7PD88,4hqCqVze2sJqskEQmK2Mb7,3iRKwxW8ZDjmL9nKk3nisz,2pUlBBWq8R10ylbBvZJV9j,7vVs4XCsQyGn1Au3drvo9Z,0WtM2NBVQNNJLh6scP13H8,2tZPZ1lT8TMlEUxXTxCCeO,4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M'
+        const audioEl = useRef(null);
+        audioEl.current = [];
+            const audioToEl = (el) => {
+            if (el && !audioEl.current.includes(el)) {
+                audioEl.current.push(el);
             }
-        })
-        console.log(data.tracks);
-        setReleases(data.tracks);
-    }
-    getTracks();
+            };
+
+            const imageEl = useRef(null);
+                 imageEl.current = [];
+                     const imageToEl = (el) => {
+                     if (el && !imageEl.current.includes(el)) {
+                         imageEl.current.push(el);
+                     }
+                     };
+
+                     const musicNameEl = useRef(null);
+                          musicNameEl.current = [];
+                              const musicNameToEl = (el) => {
+                              if (el && !musicNameEl.current.includes(el)) {
+                                  musicNameEl.current.push(el);
+                              }
+                              };
+
+                              const artistNameEl = useRef(null);
+                                   artistNameEl.current = [];
+                                       const artistNameToEl = (el) => {
+                                       if (el && !artistNameEl.current.includes(el)) {
+                                           artistNameEl.current.push(el);
+                                       }
+                                       };
+
+                                       const musicBoxEl = useRef(null);
+                                            musicBoxEl.current = [];
+                                                const musicBoxToEl = (el) => {
+                                                if (el && !musicBoxEl.current.includes(el)) {
+                                                    musicBoxEl.current.push(el);
+                                                }
+                                                };
+
+
+   
+
+            // useEffect(() => {
+            //     setTimeout(() => {
+            //         if (isPlaying) {
+            //           audioEl.current.play();
+            //         } else {
+            //           audioEl.current.pause();
+            //         }
+            //       }, 4000);
+            //   });
+
+         
+
+// useEffect(() => {
+//     const getTracks = async () => {
+//         const {data} = await axios.get("https://spotify23.p.rapidapi.com/tracks/", {
+//             headers: {
+//                 'X-RapidAPI-Key': '6ed6cedd6fmshd8e759bfbb8f31ep15789fjsnb435e620a8a3',
+//                 'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+//             },
+//             params: {
+//                 ids: '1301WleyT98MSxVHPZCA6M,2wgvxtggKVzPkl0smF2UzI,5UwxpuGHkwiojKDaPC5ZNu,3PEkfP69a7aMMb8yI7PD88,4vI2KCvXTAPR3vfiWg1J78,4hqCqVze2sJqskEQmK2Mb7,4N7AXHRMQYh9GHQd5hE6NP,5CTQCPv51aLWpwTbqo8mEL,3iRKwxW8ZDjmL9nKk3nisz,2pUlBBWq8R10ylbBvZJV9j,7vVs4XCsQyGn1Au3drvo9Z,0WtM2NBVQNNJLh6scP13H8,2tZPZ1lT8TMlEUxXTxCCeO,52oDXfdKV4faAFLnNyf0bl,4iV5W9uYEdYUVa79Axb7Rh'
+//             }
+//         })
+//         console.log(data.tracks);
+//         setReleases(data.tracks);
+//     }
+//     getTracks();
 
     
-}, [token])
+// }, [setReleases])
 
-useEffect(()=>{
-    const timer = setTimeout( () => setCanShow(true) , 1000)
-    return () => clearTimeout(timer);
-  })
 
+
+  const [iplay, setIplay] = useState(false)
+
+  const oy = (src) => {
+    console.log(audioEl.current);
+    // let sound = new Howl ({
+    //     src,
+    //     html5: true
+    // })
 
     
- const oy = () => {
-    setNextSongIndex(() => {
-        if (currentSongIndex + 1 > releases.length - 1) {
-            return 0;
-        } else {
-            return currentSongIndex + 1;
-        }
-    });
- }
+       
+    // if (isPlaying) {
+    //     sound.pause();
+    //     setIsPlaying(false);
+    //   } else {
+    //     sound.play();
+    //     setIsPlaying(true);
+    //   }
+    //   console.log("isPlaying", isPlaying);
+
+  }
+    
+ 
 
     
 
     return (
         <>
-            <div className='flex flex-col bg-[#1A1E1F] px-4 text-white'>
+            <div className='flex flex-col bg-[#1D2123] w-[90vw] float-right px-4 text-white'>
                 <h3 className='text-[1.3em] float-left p-3'>
                     New Releases.
                 </h3>
@@ -69,20 +149,47 @@ useEffect(()=>{
                 
                     <Swiper  
                     spaceBetween={20} 
-                    slidesPerView={7}
+                    slidesPerView={3}
                     >
                             {releases.map((release, index) => {
                                     return (
                                         <SwiperSlide>
                                         <> 
-                                                <div key={index} onClick={oy} className='flex flex-col relative text-left my-3 mx-auto cursor-pointer'>
-                                                <audio disabled className='absolute hidden top-0 left-0 mx-auto mt-[50px] ml-[50px] h-[100px]'
-                                                    src={release.preview_url}
-                                                    controls
-                                                />
-                                                {release.album.images.length ?<img className='w-[200px] rounded-[20px]' src={release.album.images[0].url} alt="artist"/> : <img className='w-[200px] h-[200px] rounded-[50px]' src={notAvailable} alt='not available'/>}
-                                                <h2 className='text-white text-[1.1em]'>{release.name}</h2>
-                                                    <h5 className='text-white text-[.8em]'>{release.artists[0].name}</h5>
+                                               <div key={index} ref={musicBoxToEl} onClick={() => {
+                                                    console.log(imageEl.current)
+                                                    console.log(audioEl.current[index])
+                                                    console.log(musicNameEl.current[index])
+                                                    console.log(artistNameEl.current[index])
+                                                    console.log(releases[currentSongIndex].name)
+                                                    // musicBoxEl.current[0].style.display = 'none'
+                                                    // musicBoxEl.current[0].style.scale = '0'
+                                                    console.log(isPlaying)
+                                                        
+                                                    console.log(playerAudioRef.current.currentSrc)
+                                                    console.log(playerImageRef.current.outerHTML)
+                                                    console.log(imageEl)
+                                                    console.log(playerNameRef.current.innerHTML)
+                                                    console.log(playerArtistRef.current.innerHTML)
+                                                    isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
+                                                    playerAudioRef.current.src = audioEl.current[index].src
+                                                    playerImageRef.current.src = imageEl.current[index].src
+                                                    
+                                                    playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
+                                                    playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
+                                                 }} 
+                                                 className='flex flex-col relative text-left my-3 mx-auto cursor-pointer'>
+
+                                                <audio 
+                                                    src={release.audio} 
+                                                    ref={audioToEl}
+                                                    onTimeUpdate={getCurrDuration}
+                                                    onLoadedData={(e) => {
+                                                    setDuration(e.currentTarget.duration.toFixed(2))
+                                                    }}
+                                                ></audio>
+                                                <img className='w-[200px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
+                                                    <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                 </div>
                                 
                                         </>
@@ -93,14 +200,7 @@ useEffect(()=>{
                 </div>
             </div>
 
-                    <footer className='fixed bottom-0 z-99999'>
-                    {canShow ?  <Player 
-                                currentSongIndex={currentSongIndex}
-                                setCurrentSongIndex={setCurrentSongIndex}
-                                nextSongIndex={nextSongIndex}
-                                releases={releases} 
-                            />  : <> </>}
-                    </footer>
+                    
         </>
     )
 }

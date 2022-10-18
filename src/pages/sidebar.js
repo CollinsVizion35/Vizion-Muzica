@@ -16,37 +16,37 @@ const options = [
         id: 0,
         img: homeIcon,
         text: "Home",
-        navigate: '/dashboard-home'
+        navigate: '/home'
     },
     {
         id: 1,
         img: collectionIcon,
         text: "My Collections",
-        navigate: '/dashboard-categories'
+        navigate: '/collection'
     },
     {
         id: 2,
         img: radioIcon,
         text: "Radio",
-        navigate: '/dashboard-my-questions'
+        navigate: '/radio'
     },
     {
         id: 3,
         img: musicVidIcon,
         text: "Music Videos",
-        navigate: '/MyInfo'
+        navigate: '/musicvideos'
     },
     {
         id: 4,
         img: profileIcon,
         text: "Profile",
-        navigate: '/dashboard-settings'
+        navigate: '/profile'
     },
     {
         id: 5,
         img: logoutIcon,
         text: "Logout",
-        navigate: '/dashboard-settings'
+        navigate: '/'
     }
 ];
 

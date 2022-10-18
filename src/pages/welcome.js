@@ -20,6 +20,13 @@ const Welcome = () => {
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
 
+    useEffect(() => {
+      setTimeout(() => {
+        navigate('/home');
+      }, 3000);
+    }, [navigate])
+    
+
     return (
         <>
             <div className='welcome bg-[#1D2123] text-white'>

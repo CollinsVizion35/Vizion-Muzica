@@ -2,8 +2,40 @@ import React from 'react'
 import {FaPlay, FaPause, FaStepBackward, FaStepForward} from 'react-icons/fa/index'
 import {BsShuffle} from 'react-icons/bs/index'
 import {TbRepeatOnce} from 'react-icons/tb/index'
+import Slider from './slider'
+import { AppPass } from '../contexts/AppContext';
 
 function PlayerControls(props) {
+
+  const {token,
+    setToken,
+    releases, 
+    setReleases,
+    currentSongIndex, 
+    setCurrentSongIndex,
+    nextSongIndex, 
+    setNextSongIndex,
+    isPlaying, 
+    setIsPlaying,
+    duration, 
+    setDuration,
+    currentTime, 
+    setCurrentTime,
+    percentage, 
+    setPercentage,
+    audioEl,
+    playerAudioRef,
+    playerImageRef,
+    playerNameRef,
+    playerArtistRef} = AppPass()
+
+    const onChange = (e) => {
+      const audio = playerAudioRef.current
+      audio.currentTime = (audio.duration / 100) * e.target.value
+      setPercentage(e.target.value)
+    }
+
+
   return (
     <div className='flex flex-col items-center w-[60vw]'>
         <div className='flex flex-row items-center w-[40vw] justify-between mb-2'>
@@ -17,7 +49,7 @@ function PlayerControls(props) {
         </div>
 
         <div>
-            <input type='range' id='sondTime' className='w-[60vw] h-[10%] bg-[#F9D175]'/>
+            <Slider percentage={percentage} onChange={onChange} />
         </div>
     </div>
   )
