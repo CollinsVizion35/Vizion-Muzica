@@ -19,9 +19,9 @@ function VolumeSlider({ percentage = 0, onChange }) {
   useEffect(() => {
     const rangeWidth = rangeRef.current.getBoundingClientRect().width
     const thumbWidth = thumbRef.current.getBoundingClientRect().width
-    const centerThumb = (thumbWidth / 100) * volume * 950
+    const centerThumb = (thumbWidth / 100) * volume * 1900
     const centerProgressBar =
-    (thumbWidth / 100) * volume * 1000
+    (thumbWidth / 100) * volume * 2000
     setPosition(volume)
     setMarginLeft(centerThumb)
     setProgressBarWidth(centerProgressBar)

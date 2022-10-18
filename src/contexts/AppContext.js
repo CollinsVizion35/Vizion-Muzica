@@ -16,7 +16,7 @@ const releases = [
       audio: 'Eminem - Book of Rhymes [Lyrics].mp3'
   }, {
       id: 0,
-      artist: 'KendrickLamar',
+      artist: 'Kendrick Lamar',
       img: chinwo,
       name: 'Savior',
       audio: 'Kendrick_Lamar_Baby_Keem_Sam_Dew_Savior_(thinkNews.com.ng).mp3'

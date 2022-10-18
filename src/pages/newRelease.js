@@ -187,7 +187,7 @@ const NewReleases = () => {
                                                     setDuration(e.currentTarget.duration.toFixed(2))
                                                     }}
                                                 ></audio>
-                                                <img className='w-[200px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                <img className='w-[200px] h-[200px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
                                                 <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                     <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                 </div>
