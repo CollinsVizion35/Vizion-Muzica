@@ -69,7 +69,7 @@ function Header() {
 
 
   return (
-            <div className='flex flex-row w-[45vw] text-[#fff] justify-between bg-[inherit] mx-4 rounded-[50px] py-4'>
+            <div className='flex flex-row w-[95vw] ml-[2.5vw] lg:w-[45vw] text-[#fff] justify-between bg-[inherit] lg:mx-4 rounded-[50px] py-4'>
             
             <Swiper  
                     spaceBetween={20} 
@@ -81,7 +81,7 @@ function Header() {
                                     <SwiperSlide>
                                     <> 
                                             
-                                                <div key={index} style={{backgroundColor: playlist.bgColor}}  className='flex relative w-[45vw] px-3 h-[50vh] rounded-[50px] mx-auto items-center cursor-pointer flex-row h-[50vh] justify-between'>
+                                                <div key={index} style={{backgroundColor: playlist.bgColor}}  className='flex relative w-[95vw] lg:w-[45vw] px-3 h-[60vh] rounded-[50px] mx-auto items-center cursor-pointer flex-row lg:6 justify-between'>
                                                     <div className='flex flex-col justify-around'>
                                                         <div className='text-[0.9em] px-12 '>Currated playlist</div>
 
@@ -103,7 +103,7 @@ function Header() {
                                                         </div>
                                                     </div>
 
-                                                    <div className='w-[20vw]'>
+                                                    <div className='w-[20vw] lg:block hidden'>
                                                         <img className='h-[45vw] w-[100%] mt-[2%] mr-[2%]' src={vectorImg} alt='artist'/>
                                                         <img className='absolute right-0 top-0 h-full min-w-[20vw] m-h-[50%] z-[999]' src={playlist.img} alt='artist'/>
                                                     </div>

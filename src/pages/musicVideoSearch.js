@@ -60,7 +60,7 @@ useEffect(()=>{
                 <div>
                     {/* {token ? */}
                     <form className='relative w-[30vw] float-left pl-2 pb-3 mx-auto items-center justify-center' onSubmit={searchVideos}>
-                        <input type="text" onChange={e => setSearchKey(e.target.value)} placeholder='search music video' className=' bg-[#1D2123] px-20 py-2 rounded-[50px]'/>
+                        <input type="text" onChange={e => setSearchKey(e.target.value)} placeholder='search music video' className=' bg-[#1D2123] lg:px-20 w-[95vw] ml-[1.5vw] px-10 py-2 rounded-[50px]'/>
                         <img src={searchIcon} onClick={searchVideos} className='w-[20px] absolute top-0 left-0 py-2 ml-3 cursor-pointer' alt='search icon'/>
                     </form>
 
@@ -87,7 +87,7 @@ useEffect(()=>{
                                 
                             </>
                         )
-                    }) : <div className='h-full w-full mx-auto my-auto'>Search For a Music Video and get your result</div>}
+                    }) : <div className='h-screen w-full mx-auto text-center items-center pt-[4em] lg:my-auto'>Search For a Music Video and get your result</div>}
                     </div>
             </div>
         </>

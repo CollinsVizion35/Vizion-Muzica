@@ -22,7 +22,7 @@ function Slider({ percentage = 0, onChange }) {
   }, [percentage])
 
   return (
-    <div className='slider-container'>
+    <div className='slider-container hidden lg:block'>
       <div
         className='progress-bar-cover'
         style={{

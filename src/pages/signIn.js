@@ -124,7 +124,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex lg:flex-row flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>

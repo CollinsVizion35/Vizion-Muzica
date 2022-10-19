@@ -100,7 +100,7 @@ const Home = () => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
@@ -138,7 +138,7 @@ const Home = () => {
             
 
             <div className='Body w-[9/10]'>
-                <div className='flex flex-row'>
+                <div className='flex flex-col lg:flex-row'>
                     <Header/>
                     <TopChart/>
                 </div>

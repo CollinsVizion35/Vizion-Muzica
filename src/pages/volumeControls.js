@@ -39,7 +39,7 @@ function VolumeControls() {
 
 
   return (
-    <div className='flex flex-row items-center'>
+    <div className=' hidden lg:flex flex-row items-center'>
             {volume === '0' ? <FaVolumeMute className='mr-2'/> : volume  > '0' && volume  <= '0.5' ? <FaVolumeDown className='mr-2'/> : <FaVolumeUp className='mr-2'/>}
             <VolumeSlider onChange={onChange}/>
         </div>

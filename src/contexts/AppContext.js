@@ -1,8 +1,15 @@
 import { useEffect, useState, createContext, useContext, useRef } from 'react';
 
-import burna from '../imgs/burna.jpg'
-import chinwo from '../imgs/chinwo.jpg'
-import tt from '../imgs/tomorrowsTunes.jpg'
+import otilo from '../imgs/poco.jpeg'
+import mMWTV from '../imgs/asake.jpeg'
+import rush from '../imgs/ayra-starr.jpg'
+import remaRaves from '../imgs/Rema-Rave-Roses.jpeg'
+import breezy from '../imgs/Chris-Brown-Call-me-everyday.jpg'
+import pSquare from '../imgs/p-square.jpeg'
+import coughKizz from '../imgs/Kizz-Daniel-Cough.jpg'
+import blaqUni from '../imgs/Blaqbonez-Back-To-Uni.jpeg'
+import PheelzElec from '../imgs/electricity.png'
+
 
 export const AppContext = createContext();
 
@@ -10,23 +17,65 @@ export const AppContext = createContext();
 const releases = [
   {
       id: 0,
-      artist: 'eminem',
-      img: tt,
-      name: 'Book Of Rhymes',
-      audio: 'Eminem - Book of Rhymes [Lyrics].mp3'
+      artist: 'Poco Lee Ft Hotkid',
+      img: otilo,
+      name: 'Otilo',
+      audio: 'Poco_Lee_-_Otilo_Izz_Gone_feat_Hotkid__@BaseNaija.com.mp3'
   }, {
-      id: 0,
-      artist: 'Kendrick Lamar',
-      img: chinwo,
-      name: 'Savior',
-      audio: 'Kendrick_Lamar_Baby_Keem_Sam_Dew_Savior_(thinkNews.com.ng).mp3'
+      id: 1,
+      artist: 'Blaqbonez',
+      img: blaqUni,
+      name: 'Back in Uni',
+      audio: 'Blaqbonez-JAE5-Back-In-Uni_@BaseNaija.com_.mp3'
   }, {
-      id: 0,
-      artist: 'P-Square',
-      img: burna,
-      name: 'Beautiful onyinye',
-      audio: 'P SQUARED -BEUTIFUL ONYINYE.mp3'
-  }, 
+      id: 2,
+      artist: 'Asake',
+      img: mMWTV,
+      name: 'Organise',
+      audio: 'Asake_-_Organise_@BaseNaija.com.mp3'
+  }, {
+    id: 3,
+    artist: 'Kizz Daniel',
+    img: coughKizz,
+    name: 'Cough (Odo)',
+    audio: 'Kizz_Daniel_-_Cough_Odo__@BaseNaija.com.mp3'
+}, {
+  id: 4,
+  artist: 'Asake',
+  img: mMWTV,
+  name: 'Dull',
+  audio: 'Asake_-_Dull_@BaseNaija.com.mp3'
+}, {
+  id: 5,
+  artist: 'Ayra Starr',
+  img: rush,
+  name: 'Rush',
+  audio: 'Ayra_Starr_-_Rush_@BaseNaija.com.mp3'
+}, {
+  id: 6,
+  artist: 'Pheelz Ft Davido',
+  img: PheelzElec,
+  name: 'Electricity',
+  audio: 'Pheelz_-_Electricity_feat_Davido__@BaseNaija.com.mp3'
+}, {
+  id: 7,
+  artist: 'Chris Brown Ft Wizkid',
+  img: breezy,
+  name: 'Call Me Everyday',
+  audio: 'Chris_Brown_-_Call_Me_Everyday_feat_Wizkid__@BaseNaija.com.mp3'
+}, {
+  id: 8,
+  artist: 'Rema',
+  img: remaRaves,
+  name: 'Are You There',
+  audio: 'Rema_-_Are_You_There__@BaseNaija.com.mp3'
+}, {
+  id: 9,
+  artist: 'P-Square',
+  img: pSquare,
+  name: 'Ihe Geme',
+  audio: 'P-Square_-_Jaiye_Ihe_Geme__@BaseNaija.com.mp3'
+}, 
 ]
 
 export const AppContextPage = ({children}) => {

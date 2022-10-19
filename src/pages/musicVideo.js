@@ -66,7 +66,7 @@ const MusicVideos = () => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex  lg:flex-row flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
@@ -103,7 +103,7 @@ const MusicVideos = () => {
 
             
 
-            <div className='Body w-[9/10] mt-[-4em] pr-3'>
+            <div className='Body lg:w-[9/10] lg:mt-[-4em] pr-3'>
                 <MusicVideoSearch/>
             </div>
             

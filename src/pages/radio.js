@@ -106,7 +106,7 @@ function Radio() {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex lg:flex-row flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
@@ -145,14 +145,14 @@ function Radio() {
 
             
             
-    <div className='flex flex-col items-center justify-center text-center float-right w-[90vw] bg-[#1D2123] text-white'>
-        <div className='text-3xl p-2 mt-[-2em] text-[#FACD66] mr-[10vw]'>
+    <div className='flex flex-col items-center justify-center text-center float-right lg:w-[90vw] bg-[#1D2123] text-white'>
+        <div className='text-3xl p-2 lg:mt-[-2em] text-[#FACD66] mr-[10vw]'>
             VizMuz <span className='text-[#95B4B3]'>Radio</span>
         </div>
 
 
-        <div className="flex flex-row-reverse justify-around w-full mt-4">
-            <div className='flex flex-col text-left w-[20vw] fixed right-0 top-0 px-8 mt-[5em]'>
+        <div className="flex lg:flex-row-reverse flex-col justify-around w-full mt-4">
+            <div className='lg:flex lg:flex-col grid grid-cols-3 md:grid-cols-6 text-left lg:w-[20vw] lg:fixed right-0 top-0 px-8 mt-[5em]'>
                 {filters.map(filter => {
                     return (
                     <button 
@@ -163,10 +163,10 @@ function Radio() {
                     )
                 })}
             </div>
-            <div className='stations grid grid-cols-1 lg:grid-cols-2 mr-[10vw]'>
+            <div className='stations grid grid-cols-1 md:grid-cols-2 lg:mt-[0em] mt-[2em] lg:mr-[10vw] ml-[2.5vw]'>
                 {stations && stations.map((station, radio) => {
                     return (
-                        <div className='stations mb-4 mr-4 bg-[#95B4B3] rounded-[20px] max-w-[32.5vw] min-w-[32.5vw]' key={radio}>
+                        <div className='stations mb-4 lg:mr-4 bg-[#95B4B3] rounded-[20px] lg:max-w-[32.5vw] md:max-w-[47.5vw] md:min-w-[47.5vw] max-w-[95vw] lg:min-w-[32.5vw] min-w-[95vw]' key={radio}>
                             <div className=' flex flex-col'>
                                 <img className='w-[50px] h-[50px] rounded-[20px]' src={station.favicon} alt="station logo" onError={setDefaultSrc}/>
                             

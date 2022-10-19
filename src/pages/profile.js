@@ -85,7 +85,7 @@ const Profile = () => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex lg:flex-row flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
@@ -120,7 +120,7 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className='flex items-center mx-auto'>
+                <div className='flex items-center mx-auto lg:mt-[0em] mt-[2em]'>
                     <div className='w-full text-left py-8 px-12 md:px-14'>
                         <h2 className='font-Poppins text-[#95B4B3] text-2xl font-bold hidden lg:block mb-[5em]'>Profile</h2>
                         <div className='flex flex-col justify-center items-center'>

@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
+/* * {
+  border: 1px solid red;
+} */
+
 body {
   margin: 0;
   font-family: 'Quicksand';

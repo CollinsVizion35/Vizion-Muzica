@@ -188,7 +188,7 @@ const SignUp = ({isOpen, setIsOpen}) => {
             </div>
 
 
-            <div className='bg-[#1D2123] text-white flex flex-row'>
+            <div className='bg-[#1D2123] text-white flex lg:flex-row flex-col'>
                 <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
@@ -223,7 +223,7 @@ const SignUp = ({isOpen, setIsOpen}) => {
                     </div>
                 </div>
 
-            <div className='my-auto mt-[-5em] w-full pr-4 overflow-x-hidden h-screen lg:max-w-[1000px] bg-inherit flex items-center mx-auto justify-center'>
+            <div className='my-auto lg:mt-[-5em] w-full pr-4 overflow-x-hidden h-screen lg:max-w-[1000px] bg-inherit flex items-center mx-auto justify-center'>
                 <div className='text-left pt-6 pl-10 font-Poppins'>
 
 

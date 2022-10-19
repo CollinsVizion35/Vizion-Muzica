@@ -139,7 +139,7 @@ const Popular = () => {
 
     return (
         <>
-            <div className='flex flex-col bg-[#1D2123] w-[90vw] float-right px-4 text-white'>
+            <div className='flex flex-col bg-[#1D2123] lg:w-[90vw] w-[95vw] float-right px-4 text-white'>
                 <h3 className='text-[1.3em] float-left p-3'>
                     Popular in your area.
                 </h3>
@@ -149,7 +149,9 @@ const Popular = () => {
                 
                     <Swiper  
                     spaceBetween={20} 
-                    slidesPerView={3}
+                    slidesPerView={7}
+
+                    className='hidden lg:block'
                     >
                             {releases.map((release, index) => {
                                     return (
@@ -187,7 +189,115 @@ const Popular = () => {
                                                     setDuration(e.currentTarget.duration.toFixed(2))
                                                     }}
                                                 ></audio>
-                                                <img className='w-[200px] h-[200px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                <img className='w-[200px] h-[150px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
+                                                    <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
+                                                </div>
+                                
+                                        </>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                                </Swiper>
+
+
+                <Swiper  
+                    spaceBetween={20} 
+                    slidesPerView={4}
+
+                    className='hidden lg:hidden md:block'
+                    >
+                            {releases.map((release, index) => {
+                                    return (
+                                        <SwiperSlide>
+                                        <> 
+                                               <div key={release.name} ref={musicBoxToEl} onClick={() => {
+                                                    console.log(imageEl.current)
+                                                    console.log(audioEl.current[index])
+                                                    console.log(musicNameEl.current[index])
+                                                    console.log(artistNameEl.current[index])
+                                                    console.log(releases[currentSongIndex].name)
+                                                    // musicBoxEl.current[0].style.display = 'none'
+                                                    // musicBoxEl.current[0].style.scale = '0'
+                                                    console.log(isPlaying)
+                                                        
+                                                    console.log(playerAudioRef.current.currentSrc)
+                                                    console.log(playerImageRef.current.outerHTML)
+                                                    console.log(imageEl)
+                                                    console.log(playerNameRef.current.innerHTML)
+                                                    console.log(playerArtistRef.current.innerHTML)
+                                                    isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
+                                                    playerAudioRef.current.src = audioEl.current[index].src
+                                                    playerImageRef.current.src = imageEl.current[index].src
+                                                    
+                                                    playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
+                                                    playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
+                                                 }} 
+                                                 className='flex flex-col relative text-left my-3 mx-auto cursor-pointer'>
+
+                                                <audio 
+                                                    src={release.audio} 
+                                                    ref={audioToEl}
+                                                    onTimeUpdate={getCurrDuration}
+                                                    onLoadedData={(e) => {
+                                                    setDuration(e.currentTarget.duration.toFixed(2))
+                                                    }}
+                                                ></audio>
+                                                <img className='w-[200px] h-[150px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
+                                                    <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
+                                                </div>
+                                
+                                        </>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                                </Swiper>
+
+
+                  <Swiper  
+                    spaceBetween={20} 
+                    slidesPerView={1.3}
+
+                    className='block lg:hidden md:hidden'
+                    >
+                            {releases.map((release, index) => {
+                                    return (
+                                        <SwiperSlide>
+                                        <> 
+                                               <div key={release.name} ref={musicBoxToEl} onClick={() => {
+                                                    console.log(imageEl.current)
+                                                    console.log(audioEl.current[index])
+                                                    console.log(musicNameEl.current[index])
+                                                    console.log(artistNameEl.current[index])
+                                                    console.log(releases[currentSongIndex].name)
+                                                    // musicBoxEl.current[0].style.display = 'none'
+                                                    // musicBoxEl.current[0].style.scale = '0'
+                                                    console.log(isPlaying)
+                                                        
+                                                    console.log(playerAudioRef.current.currentSrc)
+                                                    console.log(playerImageRef.current.outerHTML)
+                                                    console.log(imageEl)
+                                                    console.log(playerNameRef.current.innerHTML)
+                                                    console.log(playerArtistRef.current.innerHTML)
+                                                    isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
+                                                    playerAudioRef.current.src = audioEl.current[index].src
+                                                    playerImageRef.current.src = imageEl.current[index].src
+                                                    
+                                                    playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
+                                                    playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
+                                                 }} 
+                                                 className='flex flex-col relative text-left my-3 mx-auto cursor-pointer'>
+
+                                                <audio 
+                                                    src={release.audio} 
+                                                    ref={audioToEl}
+                                                    onTimeUpdate={getCurrDuration}
+                                                    onLoadedData={(e) => {
+                                                    setDuration(e.currentTarget.duration.toFixed(2))
+                                                    }}
+                                                ></audio>
+                                                <img className='w-[200px] h-[150px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
                                                 <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                     <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                 </div>
