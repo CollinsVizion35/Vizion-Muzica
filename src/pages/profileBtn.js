@@ -11,7 +11,7 @@ const InfoProfileImg = () => {
   const firstNameInput = user?.displayName;
   const emailInput = user?.email;
   
-  const {phone, fName, lName, eMail} = AppPass();
+  const {phone, fName, lName, cert, eMail} = AppPass();
 
   console.log(eMail);
 
@@ -19,56 +19,56 @@ const InfoProfileImg = () => {
   const [lastName, setLastName] = useState('');
 
   const [usersInfo, setUsersInfo] = useState([])
-useEffect(() => {
-  
-  async function fetchData() {
-    const q = query(collection(db, "Users"), where("user_id", "==", user.uid));
+  useEffect(() => {
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-    console.log(user.uid);
-    setUsersInfo(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    });
-  }
-  fetchData(); 
-}, [])
+    async function fetchData() {
+      const q = query(collection(db, "Users"), where("user_id", "==", user.uid));
+  
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      console.log(user.uid);
+      setUsersInfo(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      });
+    }
+    fetchData(); 
+  }, [])
 
   // const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState(() => {
-    // getting stored value
-          const saved = sessionStorage.getItem("emailInput");
-          const initialValue = JSON.parse(saved);
-          return initialValue || "";
-        });
+  // const [email, setEmail] = useState(() => {
+  //   // getting stored value
+  //         const saved = sessionStorage.getItem("emailInput");
+  //         const initialValue = JSON.parse(saved);
+  //         return initialValue || "";
+  //       });
 
-        useEffect(() => {
-          sessionStorage.setItem('emailInput', JSON.stringify(emailInput));
-         }, [emailInput]);
+  //       useEffect(() => {
+  //         sessionStorage.setItem('emailInput', JSON.stringify(emailInput));
+  //        }, [emailInput]);
  
 
 
   // const [certificationNumber, setCertificationNumber] = useState();
   
-  const [photoURL, setPhotoURL] = useState(defaultImg);
-  const [photo, setPhoto] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [photoURL, setPhotoURL] = useState('../imgs/No-Photo-Available.jpg');
+  // const [photo, setPhoto] = useState(null);
+  // const [loading, setLoading] = useState(false);
   
 
-  console.log(user.photoURL);
+  // console.log(user.photoURL);
 
-  const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setPhoto(e.target.files[0]);
-    }
-  }
+  // const handleChange = (e) => {
+  //   if (e.target.files[0]) {
+  //     setPhoto(e.target.files[0]);
+  //   }
+  // }
 
-  useEffect(() => {
-    if (user?.photoURL) {
-      setPhotoURL(user.photoURL);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user?.photoURL) {
+  //     setPhotoURL(user.photoURL);
+  //   }
+  // }, [user]);
 
 
   // get Location
@@ -89,18 +89,18 @@ useEffect(() => {
 
   return (
     <>
-        <div className='relative flex flex-col justify-center items-center mb-4'>
+        {/* <div className='relative flex flex-col justify-center items-center mb-4'>
             <div className='rounded-[50%] h-10 mb-10 w-fit border flex justify-center items-center'>
-              <img className='h-36 w-36 rounded-[50%]' src={photoURL} alt="Avatar" />
+              <img className='h-36 w-36 rounded-[50%]' src={photo} alt="Avatar" />
             </div>
             <input type="file" onChange={handleChange} id='select-img' hidden />
             {Object.keys(user).length > 0 ?
               <label htmlFor='select-img' className='cursor-pointer rounded-[50%] w-6 h-6 text-center bg-white absolute bottom-1 left-28 text-sm text-[#6B6B6B]'>
                 +
               </label> :
-              <label htmlFor='select-img' className='cursor-pointer text-[#95B4B3]'>Upload A Profile Pic</label>
+              <label htmlFor='select-img' className='cursor-pointer text-[#95B4B3] text-[.6em]'>Upload A Profile Pic</label>
             }
-        </div>
+        </div> */}
 
         {usersInfo.map((info, index) => {
           return (

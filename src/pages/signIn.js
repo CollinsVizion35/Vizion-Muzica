@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UseAuth } from '../contexts/AuthContext';
+import { AppPass } from '../contexts/AppContext';
 
 
 import homeIcon from '../imgs/Home.svg';
@@ -72,6 +73,11 @@ const SignIn = ({isOpen, setIsOpen}) => {
     const emailRef = useRef();
     const rememberMeRef = useRef();
 
+    const {
+        signInRef,
+        signUpRef,
+        profileRef} = AppPass()
+
     const modalSuccessMsgTitle = "Successful";
     const modalSuccessMsgDetails = "Your sign in was successful";
     const modalErrMsgTitle = "Sign in";
@@ -84,6 +90,9 @@ const SignIn = ({isOpen, setIsOpen}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        signInRef.current.style.display = 'none'
+        signUpRef.current.style.display = 'none'
+        profileRef.current.style.display = 'block'
         try {
             await signIn(email, password.password)
             .then(() => setError(false))
@@ -118,7 +127,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
 
   return (
     <>
-        <div className='bg-[#1D2123] text-white flex flex-col min-h-screen'>
+        <div  ref={signInRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen'  style={{display: 'block'}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>

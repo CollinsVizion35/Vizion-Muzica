@@ -16,6 +16,12 @@ import SignIn from './pages/signIn';
 import SignUp from './pages/signUp';
 import EditProfile from './pages/editProfile';
 import Profile from './pages/profile';
+import GoldenAge from './pages/goldenAge';
+import SignUpProfile from './pages/signUpProfile';
+import ReggaeBlues from './pages/reggaeBlues';
+import Tomorrow from './pages/tomorrowTunes';
+import Collection from './pages/collection';
+import Likes from './pages/likes';
 
 
 
@@ -36,7 +42,7 @@ function App() {
 
                 <Route path='/signup' element={<SignUp isOpen={isOpen} setIsOpen={setIsOpen} />}/>
                 
-                <Route path='/profile' element={<Profile/>}/>
+                <Route path='/profile' element={<SignUpProfile isOpen={isOpen} setIsOpen={setIsOpen} />}/>
 
                 <Route path='/editprofile' element={<EditProfile/>}/>
                 
@@ -46,6 +52,17 @@ function App() {
                 <Route path='/player' element={<Player/>}/>
 
                 <Route path='/newRelease' element={<NewReleases/>}/>
+
+                <Route path='/collection' element={<Collection/>}/>
+                
+                <Route path='/likes' element={<Likes/>}/>
+
+
+                <Route path='/goldenAge' element={<GoldenAge/>}/>
+                
+                <Route path='/reggaeblues' element={<ReggaeBlues/>}/>
+                
+                <Route path='/tomorrow' element={<Tomorrow/>}/>
 
                 <Route path='/head' element={<Header/>}/>      
 

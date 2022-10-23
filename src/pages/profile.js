@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 import { Link } from 'react-router-dom';
+import { AppPass } from '../contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
@@ -71,6 +72,10 @@ const Profile = () => {
         setIsHarmburgerClicked(true);
     }
 
+    const {
+        signInRef,
+        signUpRef,
+        profileRef} = AppPass()
 
     useEffect(() => {
         document.title = 'My Profile';
@@ -79,7 +84,7 @@ const Profile = () => {
 
   return (
     <>
-        <div className='bg-[#1D2123] text-white flex flex-col min-h-screen'>
+        <div ref={profileRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen' style={{display: 'none'}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>

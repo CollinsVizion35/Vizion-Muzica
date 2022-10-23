@@ -116,11 +116,18 @@ const SignUp = ({isOpen, setIsOpen}) => {
 
     const { createUser } = UseAuth();
 
-
+    const {
+        signInRef,
+        signUpRef,
+        profileRef} = AppPass()
 
 
     async function handleSubmit(e) {
         e.preventDefault();
+        
+        signInRef.current.style.display = 'none'
+        signUpRef.current.style.display = 'none'
+        profileRef.current.style.display = 'block'
         try {
             await createUser(email, password.password);
             setError(false);
@@ -182,7 +189,7 @@ const SignUp = ({isOpen, setIsOpen}) => {
 
   return (
     <>
-        <div className='bg-[#1D2123] text-white flex flex-col min-h-screen'>
+        <div ref={signUpRef}  className='bg-[#1D2123] text-white flex flex-col min-h-screen' style={{display: 'none'}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>

@@ -74,18 +74,18 @@ useEffect(() => {
 
       
 
-  const [photoURL, setPhotoURL] = useState(defaultImg);
-  const [photo, setPhoto] = useState(null);
+  // // const [photoURL, setPhotoURL] = useState(defaultImg);
+  // const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   
 
-  console.log(user.photoURL);
+  // console.log(user.photoURL);
 
-  const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setPhoto(e.target.files[0]);
-    }
-  }
+  // const handleChange = (e) => {
+  //   if (e.target.files[0]) {
+  //     setPhoto(e.target.files[0]);
+  //   }
+  // }
 
   const resetInput = (e) => {
     e.target.value = "";
@@ -108,17 +108,17 @@ useEffect(() => {
 }, []);
 
 
-  useEffect(() => {
-    if (user?.photoURL) {
-      setPhotoURL(user.photoURL);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user?.photoURL) {
+  //     setPhotoURL(user.photoURL);
+  //   }
+  // }, [user]);
 
   return (
     <>
-        <div className='relative flex flex-col justify-center items-center mb-4'>
+        {/* <div className='relative flex flex-col justify-center items-center mb-4'>
             <div className='rounded-[50%] h-10 mb-10 w-fit border flex justify-center items-center'>
-              <img className='h-36 w-36 rounded-[50%]' src={photoURL} alt="Avatar" />
+              <img className='h-36 w-36 rounded-[50%]' src={photo} alt="Avatar" />
             </div>
             <input type="file" onChange={handleChange} id='select-img' hidden />
             {Object.keys(user).length > 0 ?
@@ -127,7 +127,7 @@ useEffect(() => {
               </label> :
               <label htmlFor='select-img' className='cursor-pointer text-[#95B4B3]'>Upload A Profile Pic</label>
             }
-        </div>
+        </div> */}
 
         {usersInfo.map((info, index) => {
           return (
@@ -162,7 +162,9 @@ useEffect(() => {
 
         </form>
         <div>
-          <ProfileEditBtn photo={photo} setLoading={setLoading} firstName={firstName} firstNameInput={firstNameInput}  lastName={lastName} newPhone={newPhone} newFName={newFName} newLName={newLName} newEMail={newEMail}/>
+          <ProfileEditBtn 
+          // photo={photo} 
+          setLoading={setLoading} firstName={firstName} firstNameInput={firstNameInput}  lastName={lastName} newPhone={newPhone} newFName={newFName} newLName={newLName} newEMail={newEMail}/>
         </div>
     </>
   )

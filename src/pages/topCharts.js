@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AppPass } from '../contexts/AppContext';
 import {FaRegHeart, FaHeart} from 'react-icons/fa/index'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 
 import '../index.css';
@@ -37,6 +38,9 @@ const TopChart = () => {
             <h1 className='float-left mb-4'>Top Charts.</h1>
 
             <div className='hidden lg:flex flex-col'>
+
+                
+            <Link to='/goldenage'>
                 <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='mj.jpg' alt=''/>
@@ -52,7 +56,10 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+            </Link>
 
+            
+            <Link to='/reggaeblues'>
                 <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='marley.webp' alt=''/>
@@ -68,7 +75,10 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+            </Link>
 
+            
+            <Link to='/tomorrow'>
                 <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='tomorrowsTunes.jpg' alt=''/>
@@ -84,6 +94,7 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+            </Link>
             </div>
 
             <Swiper  
@@ -97,6 +108,7 @@ const TopChart = () => {
             <div className='hidden w-[95vw] h-[30vh] lg:flex flex-row'>
 
             <SwiperSlide>
+            <Link to='/goldenage'>
                 <div className='mb-2 w-[95vw] bg-[#1A1E1F] h-[30vh] rounded-[20px]'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
@@ -114,10 +126,12 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+                </Link>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px]'>
+                <Link to='/reggaeblues'>
+                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='marley.webp' alt=''/>
@@ -134,10 +148,12 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+                </Link>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px]'>
+                <Link to='/tomorrow'>
+                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='tomorrowsTunes.jpg' alt=''/>
@@ -154,6 +170,7 @@ const TopChart = () => {
                     </div>
                     </div>
                 </div>
+                </Link>
                 </SwiperSlide>
             </div>
 

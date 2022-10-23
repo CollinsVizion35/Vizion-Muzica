@@ -173,6 +173,9 @@ export const AppContextPage = ({children}) => {
   const playerImageRef = useRef(null)
   const playerNameRef = useRef(null)
   const playerArtistRef = useRef(null)
+  const signInRef = useRef()
+  const signUpRef = useRef()
+  const profileRef = useRef()
     
   return (
     <>
@@ -210,7 +213,10 @@ export const AppContextPage = ({children}) => {
               playerAudioRef,
               playerImageRef,
               playerNameRef,
-              playerArtistRef
+              playerArtistRef,
+              signInRef,
+              signUpRef,
+              profileRef
               }}>
             {children}
         </AppContext.Provider>

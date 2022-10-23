@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { FaVolumeUp} from 'react-icons/fa/index'
 
 import {SiSpotify} from 'react-icons/si/index'
 import axios from 'axios'
@@ -74,6 +75,14 @@ const NewReleases = () => {
                                                     musicBoxEl.current.push(el);
                                                 }
                                                 };
+
+                                                const audioSignEl = useRef(null);
+                                                     audioSignEl.current = [];
+                                                         const audioSignToEl = (el) => {
+                                                         if (el && !audioSignEl.current.includes(el)) {
+                                                             audioSignEl.current.push(el);
+                                                         }
+                                                         };
 
 
    
@@ -175,7 +184,8 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        
+                                                        audioSignEl.current[index].style.display = 'block'
+                                                        // audioSignEl.current[index].style.display = 'none'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 
@@ -193,7 +203,7 @@ const NewReleases = () => {
                                                     <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                         <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                     </div>
-                                    
+                                                    <div ref={audioSignToEl} className='w-max p-2 bg-[#F9D175] absolute mt-4 mr-4 rounded-[5px] top-0 left-0'><FaVolumeUp/></div>
                                             </>
                                             </SwiperSlide>
                                         )
@@ -229,7 +239,7 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        
+                                                        audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 
@@ -247,6 +257,7 @@ const NewReleases = () => {
                                                     <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                         <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                     </div>
+                                                    <div ref={audioSignToEl} className='w-max p-2 bg-[#F9D175] absolute mt-4 mr-4 rounded-[5px] top-0 left-0 hidden'><FaVolumeUp/></div>
                                     
                                             </>
                                             </SwiperSlide>
@@ -283,7 +294,7 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        
+                                                        audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 
@@ -301,6 +312,7 @@ const NewReleases = () => {
                                                     <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                         <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                     </div>
+                                                    <div ref={audioSignToEl} className='w-max p-2 bg-[#F9D175] absolute mt-4 mr-4 rounded-[5px] top-0 left-0 hidden'><FaVolumeUp/></div>
                                     
                                             </>
                                             </SwiperSlide>
