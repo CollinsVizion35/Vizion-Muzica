@@ -89,7 +89,7 @@ const Home = () => {
 
     return (
         <>
-        <div className='bg-[#1D2123] text-white flex flex-col min-h-screen'>
+            <div className='bg-[#1D2123] text-white flex flex-col h-max overflow-y-auto'>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
 
@@ -137,7 +137,7 @@ const Home = () => {
 
             
 
-            <div className='Body w-[9/10]'>
+            <div className='Body w-[9/10] mb-[8em]'>
                 <div className='flex flex-col lg:flex-row'>
                     <Header/>
                     <TopChart/>

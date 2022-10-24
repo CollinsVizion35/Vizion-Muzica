@@ -25,6 +25,7 @@ import logo from '../imgs/logo.svg';
 import Sidebar from './sidebar';
 import '../index.css';
 import ProfileImg from './editProfileImg';
+import LogoutModal from './logoutModal';
 
 
 
@@ -56,16 +57,12 @@ const options2 = [
         id: 0,
         img: profileIcon,
         navigate: '/profile'
-    },
-    {
-        id: 1,
-        img: logoutIcon,
-        navigate: '/'
     }
 
 ];
 
 const SignUp = ({isOpen, setIsOpen}) => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     const [name, setName] = useState(() => {
         // getting stored value
@@ -117,6 +114,10 @@ const SignUp = ({isOpen, setIsOpen}) => {
     const { createUser } = UseAuth();
 
     const {
+        none,
+        setNone,
+        flex,
+        setFlex,
         signInRef,
         signUpRef,
         profileRef} = AppPass()
@@ -124,10 +125,12 @@ const SignUp = ({isOpen, setIsOpen}) => {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        setNone('none')
+        setFlex('flex')
         
         signInRef.current.style.display = 'none'
-        signUpRef.current.style.display = 'none'
-        profileRef.current.style.display = 'block'
+        signUpRef.current.style.display = none
+        profileRef.current.style.display = flex
         try {
             await createUser(email, password.password);
             setError(false);
@@ -155,6 +158,12 @@ const SignUp = ({isOpen, setIsOpen}) => {
             console.log(e.message);
         }
         
+    }
+
+    const handleGoToSignIn = () => {
+        signInRef.current.style.display = 'flex'
+        signUpRef.current.style.display = 'none'
+        profileRef.current.style.display = 'none'
     }
 
 
@@ -215,19 +224,22 @@ const SignUp = ({isOpen, setIsOpen}) => {
                             })}
                     </div>
 
-                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 rounded-[50px] my-4 py-4'>
-                        {options2.map((option2, index) => {
-                                return (
-                                    <> 
-                                        <Link to={option2.navigate}>
-                                            <div key={option2.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={option2.img} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                    <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
+                        
+                                       
+                                        <Link to='/profile'>
+                                        <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
+                                                <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
                                             </div>
                                         </Link>
-                                    </>
-                                )
-                            })}
-                    </div>
+
+                                        <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
+                                            <div className='flex cursor-pointer'>
+                                                <img src={logoutIcon} alt="logout icon"/>
+                                            </div>
+                                            {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
+                                        </div>
+                                    </div>
                 </div>
 
             <div className='my-auto lg:mt-[-5em] w-full pr-4 overflow-x-hidden h-screen lg:max-w-[1000px] bg-inherit flex items-center mx-auto justify-center'>
@@ -279,7 +291,7 @@ const SignUp = ({isOpen, setIsOpen}) => {
                         
                     </form>
                     <p className='text-sm text-center mr-4 leading-[3.125rem] cursor-pointer text-[#FACD66] text-left font-semibold'>
-                        <Link to='/signin'>Already have an account? Login.</Link>
+                        <div onClick={handleGoToSignIn}>Already have an account? Login.</div>
                     </p>
                 </div>
             </div>

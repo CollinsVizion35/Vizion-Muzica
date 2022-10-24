@@ -13,6 +13,10 @@ const SignUpProfile = ({isOpen, setIsOpen}) => {
     const {user} = UseAuth()
 
     const {
+      none,
+      setNone,
+      flex,
+      setFlex,
       signInRef,
       signUpRef,
       profileRef} = AppPass()

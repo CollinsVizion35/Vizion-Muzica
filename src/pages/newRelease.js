@@ -184,8 +184,10 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        audioSignEl.current[index].style.display = 'block'
-                                                        // audioSignEl.current[index].style.display = 'none'
+                                                        console.log(audioSignEl.current[index])
+                                                        console.log(audioSignEl.current)
+                                                        // !audioSignEl.current[index] === true ? audioSignEl.current.style.display = 'none' : audioSignEl.current.style.display = 'block'
+                                                        // audioSignEl.current[index].style.display = 'block'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 
@@ -203,7 +205,7 @@ const NewReleases = () => {
                                                     <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                         <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                     </div>
-                                                    <div ref={audioSignToEl} className='w-max p-2 bg-[#F9D175] absolute mt-4 mr-4 rounded-[5px] top-0 left-0'><FaVolumeUp/></div>
+                                                    <div ref={audioSignToEl} className='w-max p-2 bg-[#F9D175] absolute mt-4 mr-4 rounded-[5px] top-0 left-0 hidden'><FaVolumeUp/></div>
                                             </>
                                             </SwiperSlide>
                                         )
@@ -239,7 +241,7 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
+                                                        // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 
@@ -294,7 +296,7 @@ const NewReleases = () => {
                                                         isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                         playerAudioRef.current.src = audioEl.current[index].src
                                                         playerImageRef.current.src = imageEl.current[index].src
-                                                        audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
+                                                        // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                         playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                         playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                      }} 

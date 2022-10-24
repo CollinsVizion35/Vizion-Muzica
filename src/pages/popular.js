@@ -184,7 +184,7 @@ const Popular = () => {
                                                     isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                     playerAudioRef.current.src = audioEl.current[index].src
                                                     playerImageRef.current.src = imageEl.current[index].src
-                                                    audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
+                                                    // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                     playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                     playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                  }} 
@@ -239,7 +239,7 @@ const Popular = () => {
                                                     isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                     playerAudioRef.current.src = audioEl.current[index].src
                                                     playerImageRef.current.src = imageEl.current[index].src
-                                                    audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
+                                                    // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                     playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                     playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                  }} 
@@ -294,7 +294,7 @@ const Popular = () => {
                                                     isPlaying === true ? setIsPlaying(isPlaying) : setIsPlaying(!isPlaying)
                                                     playerAudioRef.current.src = audioEl.current[index].src
                                                     playerImageRef.current.src = imageEl.current[index].src
-                                                    audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
+                                                    // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
                                                     playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                     playerArtistRef.current.innerHTML = artistNameEl.current[index].innerHTML
                                                  }} 

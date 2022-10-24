@@ -125,7 +125,6 @@ export const AppContextPage = ({children}) => {
   
     useEffect(() => {
      localStorage.setItem('phone', JSON.stringify(phone));
-    //  localStorage.setItem('cert', JSON.stringify(cert));
      localStorage.setItem('fname', JSON.stringify(fName));
      localStorage.setItem('lname', JSON.stringify(lName));
      localStorage.setItem('email', JSON.stringify(eMail));
@@ -176,6 +175,26 @@ export const AppContextPage = ({children}) => {
   const signInRef = useRef()
   const signUpRef = useRef()
   const profileRef = useRef()
+
+  const [none, setNone] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("none");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "flex";
+  });
+  
+  const [flex, setFlex] = useState(() => {
+    // getting stored value
+    const saved = localStorage.getItem("flex");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "none";
+  });
+
+
+  useEffect(() => {
+   localStorage.setItem('none', JSON.stringify(none));
+   localStorage.setItem('flex', JSON.stringify(flex));
+  }, [none, flex]);
     
   return (
     <>
@@ -193,6 +212,10 @@ export const AppContextPage = ({children}) => {
               setEMail, 
               token,
               setToken,
+              none,
+              setNone,
+              flex,
+              setFlex,
               releases, 
               currentSongIndex, 
               setCurrentSongIndex,

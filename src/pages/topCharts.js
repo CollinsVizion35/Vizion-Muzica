@@ -41,7 +41,7 @@ const TopChart = () => {
 
                 
             <Link to='/goldenage'>
-                <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
+                <div className='mb-2 bg-[#1A1E1F] rounded-[20px] group hover:bg-[#FACD66]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='mj.jpg' alt=''/>
                     <div className='flex flex-col w-[80%] mr-[3%]'>
@@ -51,7 +51,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>
@@ -60,7 +60,7 @@ const TopChart = () => {
 
             
             <Link to='/reggaeblues'>
-                <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
+                <div className='mb-2 bg-[#1A1E1F] rounded-[20px] group hover:bg-[#FACD66]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='marley.webp' alt=''/>
                     <div className='flex flex-col w-[80%] mr-[3%]'>
@@ -70,7 +70,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>
@@ -79,7 +79,7 @@ const TopChart = () => {
 
             
             <Link to='/tomorrow'>
-                <div className='mb-2 bg-[#1A1E1F] rounded-[20px]'>
+                <div className='mb-2 bg-[#1A1E1F] rounded-[20px] group hover:bg-[#FACD66]'>
                     <div className='p-3 flex flex-row items-center'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='tomorrowsTunes.jpg' alt=''/>
                     <div className='flex flex-col w-[80%] mr-[3%]'>
@@ -89,7 +89,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>
@@ -98,7 +98,7 @@ const TopChart = () => {
             </div>
 
             <Swiper  
-                    spaceBetween={20} 
+                    spaceBetween={10} 
                     slidesPerView={1}
 
                     className='lg:hidden'
@@ -109,7 +109,7 @@ const TopChart = () => {
 
             <SwiperSlide>
             <Link to='/goldenage'>
-                <div className='mb-2 w-[95vw] bg-[#1A1E1F] h-[30vh] rounded-[20px]'>
+                <div className='mb-2 w-[95vw] bg-[#1A1E1F] h-[30vh] rounded-[20px]  group hover:bg-[#FACD66]'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='mj.jpg' alt=''/>
@@ -121,7 +121,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>
@@ -131,7 +131,7 @@ const TopChart = () => {
 
                 <SwiperSlide>
                 <Link to='/reggaeblues'>
-                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer'>
+                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='marley.webp' alt=''/>
@@ -143,7 +143,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>
@@ -153,7 +153,7 @@ const TopChart = () => {
 
                 <SwiperSlide>
                 <Link to='/tomorrow'>
-                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer'>
+                <div className='mb-2 w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]'>
                     <div className='p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center'>
                     <div className='flex flex-col'>
                     <img className='rounded-[10px] w-[50px] h-[50px] mr-[3%]' src='tomorrowsTunes.jpg' alt=''/>
@@ -165,7 +165,7 @@ const TopChart = () => {
                     </div>
                     <div className='w-[10%]'>
                         <div className='border border-gray p-2 rounded-[50%] w-fit'>
-                        <FaRegHeart className='text-[#FACD66]'/>
+                        <FaRegHeart className='text-[#FACD66] group-hover:text-[#EE4B2B]'/>
                         </div>
                     </div>
                     </div>

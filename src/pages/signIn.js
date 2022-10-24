@@ -20,6 +20,7 @@ import '../index.css';
 import ProfileImg from './editProfileImg';
 import SuccessModal from './success-modal';
 import ErrorModal from './error-modal';
+import LogoutModal from './logoutModal';
 
 
 const options = [
@@ -50,17 +51,13 @@ const options2 = [
         id: 0,
         img: profileIcon,
         navigate: '/profile'
-    },
-    {
-        id: 1,
-        img: logoutIcon,
-        navigate: '/'
     }
 
 ];
 
 
 const SignIn = ({isOpen, setIsOpen}) => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState({
@@ -74,6 +71,10 @@ const SignIn = ({isOpen, setIsOpen}) => {
     const rememberMeRef = useRef();
 
     const {
+        none,
+        setNone,
+        flex,
+        setFlex,
         signInRef,
         signUpRef,
         profileRef} = AppPass()
@@ -90,9 +91,10 @@ const SignIn = ({isOpen, setIsOpen}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        signInRef.current.style.display = 'none'
-        signUpRef.current.style.display = 'none'
-        profileRef.current.style.display = 'block'
+        setNone('none')
+        setFlex('flex')
+        signInRef.current.style.display = none
+        profileRef.current.style.display = flex
         try {
             await signIn(email, password.password)
             .then(() => setError(false))
@@ -123,11 +125,17 @@ const SignIn = ({isOpen, setIsOpen}) => {
         setPassword({...password, [prop]: e.target.value});
     }
 
+    const handleGoToSignUp = () => {
+        signInRef.current.style.display = 'none'
+        signUpRef.current.style.display = 'flex'
+        profileRef.current.style.display = 'none'
+    }
+
 
 
   return (
     <>
-        <div  ref={signInRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen'  style={{display: 'block'}}>
+        <div  ref={signInRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen'  style={{display: none}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>
@@ -153,19 +161,22 @@ const SignIn = ({isOpen, setIsOpen}) => {
                             })}
                     </div>
 
-                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 rounded-[50px] my-4 py-4'>
-                        {options2.map((option2, index) => {
-                                return (
-                                    <> 
-                                        <Link to={option2.navigate}>
-                                            <div key={option2.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={option2.img} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                    <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
+                        
+                                       
+                                        <Link to='/profile'>
+                                        <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
+                                                <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
                                             </div>
                                         </Link>
-                                    </>
-                                )
-                            })}
-                    </div>
+
+                                        <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
+                                            <div className='flex cursor-pointer'>
+                                                <img src={logoutIcon} alt="logout icon"/>
+                                            </div>
+                                            {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
+                                        </div>
+                                    </div>
                 </div>
 
             <div className='w-full bg-inherit flex items-center mx-auto justify-center'>
@@ -208,7 +219,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
                         />}
 
                     </form>
-                    <p className='text-sm leading-[3.125rem] cursor-pointer text-[#FACD66] text-center font-semibold'> <Link to='/signup'>Dont have an account? create an account.</Link></p>
+                    <p className='text-sm leading-[3.125rem] cursor-pointer text-[#FACD66] text-center font-semibold'> <div onClick={handleGoToSignUp}>Dont have an account? create an account.</div></p>
                     {/* <SignUp
                      value={passwordValue.password}
                      setPasswordValue={setPasswordValue}

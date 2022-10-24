@@ -44,12 +44,6 @@ const options = [
         img: profileIcon,
         text: "Profile",
         navigate: '/profile'
-    },
-    {
-        id: 5,
-        img: logoutIcon,
-        text: "Logout",
-        navigate: '/'
     }
 ];
 

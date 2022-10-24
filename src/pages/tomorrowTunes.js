@@ -24,6 +24,7 @@ import NewReleases from './newRelease';
 import Popular from './popular';
 import Header from './header'
 import TopChart from './topCharts';
+import LogoutModal from './logoutModal';
 
 import bgImage from '../imgs/tomorrowsTunes.jpg'
 import badGuy from '../imgs/badGuy.webp'
@@ -67,11 +68,6 @@ const options2 = [
         id: 0,
         img: profileIcon,
         navigate: '/profile'
-    },
-    {
-        id: 1,
-        img: logoutIcon,
-        navigate: '/'
     }
 
 ];
@@ -152,6 +148,7 @@ const releases = [
 
 
 const Tomorrow = () => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     const {token,
         setToken,
@@ -222,9 +219,9 @@ const Tomorrow = () => {
 
 
                                               return (
-                                                <div  className='bg-opacity-[0%]' style={{backgroundImage: "url('mj.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-                                                <div className='bg-[#1A1E1F] bg-opacity-[70%] text-white flex flex-col min-h-screen'>
-                                                    <div className='bg-[#1A1E1F] bg-opacity-[70%] p-4 w-screen pb-8 hidden lg:flex flex-row'>
+                                                <div  className='bg-opacity-[0%]' style={{backgroundImage: "url('tomorrowstunes.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                                                <div className='bg-[#1A1E1F] bg-opacity-[50%] text-white flex flex-col min-h-screen'>
+                                                    <div className='bg-[#1A1E1F] bg-opacity-[50%] p-4 w-screen pb-8 hidden lg:flex flex-row'>
                                                         <img src={logo} alt='home icon' className='mr-2'/>
                                         
                                                         <SearchArtist/>
@@ -237,7 +234,7 @@ const Tomorrow = () => {
                                                         </div>
                                         
                                                         <div className='sidebar-lg hidden lg:flex flex-col'>
-                                                            <div className='flex flex-col justify-between bg-opacity-[70%] bg-[#262A2D] mx-4 w-[4vw] rounded-[50px] py-4'>
+                                                            <div className='flex flex-col justify-between bg-opacity-[50%] bg-[#262A2D] mx-4 w-[4vw] rounded-[50px] py-4'>
                                                                 {options.map((option, index) => {
                                                                         return (
                                                                             <> 
@@ -251,18 +248,21 @@ const Tomorrow = () => {
                                                                     })}
                                                             </div>
                                         
-                                                            <div className='flex flex-col justify-between mt-3 bg-opacity-[70%] bg-[#262A2D] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
-                                                                {options2.map((option2, index) => {
-                                                                        return (
-                                                                            <> 
-                                                                                <Link to={option2.navigate}>
-                                                                                    <div key={option2.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                                                        <img src={option2.img} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
-                                                                                    </div>
-                                                                                </Link>
-                                                                            </>
-                                                                        )
-                                                                    })}
+                                                            <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
+                        
+                                       
+                                                                <Link to='/profile'>
+                                                                <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
+                                                                        <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                                                                    </div>
+                                                                </Link>
+
+                                                                <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
+                                                                    <div className='flex cursor-pointer'>
+                                                                        <img src={logoutIcon} alt="logout icon"/>
+                                                                    </div>
+                                                                    {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
+                                                                </div>
                                                             </div>
                                                         </div>
                                         
@@ -270,7 +270,7 @@ const Tomorrow = () => {
                                         
                                                     <div className='goldenAge flex flex-col lg:w-full w-[90vw] mx-auto'>
                                                         <div className='flex lg:flex-row flex-col mb-8 items-end items-left'>
-                                                            <img src='mj.jpg' alt='music cover' className='lg:w-[250px] lg:h-[250px] lg:mr-4 w-full mx-auto rounded-[20px]'/>
+                                                            <img src='tomorrowstunes.jpg' alt='music cover' className='lg:w-[250px] lg:h-[250px] lg:mr-4 w-full mx-auto rounded-[20px]'/>
                                                             <div className='flex flex-col lg:w-[100%] w-[95vw] mx-auto mt-4 lg:mt-[0px]'>
                                                                 <div className='text-bold text-[1.4em] text-[#829D9D] mb-2'>Tomorrow's Tunes</div>
                                                                 <div className=' text-[0.8em] mb-1 lg:w-[40vw] w-[90vw]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</div>
@@ -309,7 +309,7 @@ const Tomorrow = () => {
                                                                             playerNameRef.current.innerHTML = musicNameEl.current[index].innerHTML
                                                                             playerArtistRef.current.innerHTML = ''
                                                                          }} 
-                                                                         className='flex items-center flex-row justify-evenly rounded-[20px] relative bg-opacity-[70%] bg-[#262A2D] p-2 mx-auto mb-4 cursor-pointer'>
+                                                                         className='flex items-center flex-row justify-evenly rounded-[20px] relative bg-opacity-[50%] bg-[#262A2D] p-2 mx-auto mb-4 cursor-pointer'>
                                         
                                                                         <audio 
                                                                             src={release.audio} 
@@ -319,15 +319,15 @@ const Tomorrow = () => {
                                                                             setDuration(e.currentTarget.duration.toFixed(2))
                                                                             }}
                                                                         ></audio>
-                                                                        <img className='w-[50px] h-[50px] mr-4  rounded-[10px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                                       <img className='w-[50px] h-[50px] mr-4  rounded-[10px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
                                                                         <BsHeart className='w-[7%] lg:block hidden'/>
                                                                         <div className='lg:w-[60%] w-[80%] flex flex-col text-left lg:flex-row lg:text-center'>
-                                                                        <h2 ref={musicNameToEl} className='lg:w-[30%] text-left lg:text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>{release.name} - {release.artist}</h2>
-                                                                        <h2 className='lg:w-[30%] text-left lg:text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>{release.album}</h2>
+                                                                        <h2 ref={musicNameToEl} className='lg:w-[50%] text-left lg:text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>{release.name} - {release.artist}</h2>
+                                                                        <h2 className='lg:w-[50%] text-left lg:text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>{release.album}</h2>
                                                                         </div>
                                                                         <div className='lg:w-[21%] w-[10%] flex flex-col lg:flex-row text-center items-center'>
-                                                                        <h2 className='w-[20%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>4:12</h2>
-                                                                        <BsThreeDotsVertical className='text-[#FACD66] lg:w-[1%]'/>
+                                                                        <h2 className='lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]'>4:12</h2>
+                                                                        <BsThreeDotsVertical className='text-[#FACD66] lg:w-[50%]'/>
                                                                         </div>
                                                                         </div>
                                                         

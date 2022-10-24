@@ -18,8 +18,8 @@ import logo from '../imgs/logo.svg';
 
 import Sidebar from './sidebar';
 import '../index.css';
-import ProfileImg from './editProfileImg';
 import InfoProfileImg from './profileBtn';
+import LogoutModal from './logoutModal';
 
 
 
@@ -51,17 +51,13 @@ const options2 = [
         id: 0,
         img: profileIcon,
         navigate: '/profile'
-    },
-    {
-        id: 1,
-        img: logoutIcon,
-        navigate: '/'
     }
 
 ];
 
 
 const Profile = () => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
     
     const [searchInput, setSearchInput] = useState('');
     const [isHarmburgerClicked, setIsHarmburgerClicked] = useState(false);
@@ -73,6 +69,10 @@ const Profile = () => {
     }
 
     const {
+        none,
+        setNone,
+        flex,
+        setFlex,
         signInRef,
         signUpRef,
         profileRef} = AppPass()
@@ -84,7 +84,7 @@ const Profile = () => {
 
   return (
     <>
-        <div ref={profileRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen' style={{display: 'none'}}>
+        <div ref={profileRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen' style={{display: flex}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>
@@ -110,19 +110,22 @@ const Profile = () => {
                             })}
                     </div>
 
-                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 rounded-[50px] my-4 py-4'>
-                        {options2.map((option2, index) => {
-                                return (
-                                    <> 
-                                        <Link to={option2.navigate}>
-                                            <div key={option2.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={option2.img} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                    <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
+                        
+                                       
+                                        <Link to='/profile'>
+                                        <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
+                                                <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
                                             </div>
                                         </Link>
-                                    </>
-                                )
-                            })}
-                    </div>
+
+                                        <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
+                                            <div className='flex cursor-pointer'>
+                                                <img src={logoutIcon} alt="logout icon"/>
+                                            </div>
+                                            {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
+                                        </div>
+                                    </div>
                 </div>
 
                 <div className='flex items-center mx-auto lg:mt-[0em] mt-[2em]'>

@@ -12,11 +12,12 @@ const Logout = ({open, showLogoutModal, setShowLogoutModal }) => {
   const handleLogout = async() => {
     try {
       await signOut(auth)
-      .then(() => navigate('/'));
+      .then(() => navigate('/home'));
     } catch (e) {
       console.log(e.message);
     }
-    sessionStorage.clear()
+    localStorage.removeItem('none');
+    localStorage.removeItem('flex');
   }
 
   return ReactDOM.createPortal(

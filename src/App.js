@@ -38,9 +38,9 @@ function App() {
 
                 <Route path='/' element={<Welcome/>}/>
 
-                <Route path='/signIn' element={<SignIn isOpen={isOpen} setIsOpen={setIsOpen} />}/>
+                {/* <Route path='/signIn' element={<SignIn isOpen={isOpen} setIsOpen={setIsOpen} />}/>
 
-                <Route path='/signup' element={<SignUp isOpen={isOpen} setIsOpen={setIsOpen} />}/>
+                <Route path='/signup' element={<SignUp isOpen={isOpen} setIsOpen={setIsOpen} />}/> */}
                 
                 <Route path='/profile' element={<SignUpProfile isOpen={isOpen} setIsOpen={setIsOpen} />}/>
 
