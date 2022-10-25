@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { AppPass } from '../contexts/AppContext';
-import axios from 'axios'
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 
 import reggaePic from '../imgs/dube-removebg-preview.png'

@@ -6,27 +6,16 @@ import { AppPass } from '../contexts/AppContext';
 
 function Player() {
     
-    const {token,
-        setToken,
+    const {
         releases, 
-        setReleases,
         currentSongIndex, 
         setCurrentSongIndex,
-        nextSongIndex, 
-        setNextSongIndex,
         isPlaying, 
         setIsPlaying,
-        duration, 
         setDuration,
-        currentTime, 
         setCurrentTime,
-        percentage, 
         setPercentage,
-        audioEl,
-        playerAudioRef,
-        playerImageRef,
-        playerNameRef,
-        playerArtistRef} = AppPass()
+        playerAudioRef,} = AppPass()
 
         useEffect(() => {
           if (isPlaying) {

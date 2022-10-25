@@ -3,14 +3,7 @@ import SearchArtist from './searchArtist';
 import { AppPass } from '../contexts/AppContext';
 import Player from './player';
 
-import homeIcon from '../imgs/Home.svg';
-import collectionIcon from '../imgs/playlist.svg';
-import radioIcon from '../imgs/radio.svg';
-import musicVidIcon from '../imgs/videos.svg';
-import profileIcon from '../imgs/profile.svg';
-import logoutIcon from '../imgs/Logout.svg';
 import logo from '../imgs/logo.svg';
-import searchIcon from '../imgs/search.svg';
 import { BsThreeDotsVertical, BsHeart, BsFillPlayCircleFill, BsHeartFill } from 'react-icons/bs/index'
 import { MdCollectionsBookmark } from 'react-icons/md/index'
 
@@ -18,12 +11,6 @@ import { MdCollectionsBookmark } from 'react-icons/md/index'
 import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
 import '../index.css';
-import { onSnapshot, collection, doc } from 'firebase/firestore';
-import { db } from '../firebase';
-import NewReleases from './newRelease';
-import Popular from './popular';
-import Header from './header'
-import TopChart from './topCharts';
 import LogoutModal from './logoutModal';
 
 import kaya from '../imgs/kaya.webp'
@@ -37,38 +24,41 @@ import nattyDread from '../imgs/nattyDread.jpg'
 import soulTaker from '../imgs/soulTaker.jpg'
 
 
+import {MdHomeFilled, MdLibraryMusic} from 'react-icons/md/index'
+import {RiRadio2Fill, RiLogoutBoxRFill} from 'react-icons/ri/index'
+import {HiFilm} from 'react-icons/hi/index'
+import {BsFillPersonFill} from 'react-icons/bs/index'
+
+
 
 const options = [
     {
         id: 0,
-        img: homeIcon,
-        navigate: '/home'
+        img: MdHomeFilled,
+        navigate: '/home',
+        color: '#52514E'
     },
     {
         id: 1,
-        img: collectionIcon,
-        navigate: '/collection'
+        img: MdLibraryMusic,
+        navigate: '/collection',
+        color: '#52514E'
     },
     {
         id: 2,
-        img: radioIcon,
-        navigate: '/radio'
+        img: RiRadio2Fill,
+        navigate: '/radio',
+        color: '#52514E'
     },
     {
         id: 3,
-        img: musicVidIcon,
-        navigate: '/musicvideos'
+        img: HiFilm,
+        navigate: '/musicvideos',
+        color: '#52514E'
     }
 ];
 
-const options2 = [
-    {
-        id: 0,
-        img: profileIcon,
-        navigate: '/profile'
-    }
 
-];
 
 const releases = [
     {
@@ -155,20 +145,13 @@ const releases = [
 const ReggaeBlues = () => {
     const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-    const {token,
-        setToken,
+    const {
         currentSongIndex, 
         setCurrentSongIndex,
         nextSongIndex, 
-        setNextSongIndex,
         isPlaying, 
         setIsPlaying,
-        duration, 
         setDuration,
-        currentTime, 
-        setCurrentTime,
-        percentage, 
-        setPercentage,
         getCurrDuration,
         playerAudioRef,
         playerImageRef,
@@ -176,6 +159,10 @@ const ReggaeBlues = () => {
         playerArtistRef} = AppPass()
     
     const [canShow , setCanShow] = useState(false)
+
+    useEffect(() => {
+        document.title = 'Reggae and Blues - Vizimuz';
+    }, []);
 
     useEffect(()=>{
         const timer = setTimeout( () => setCanShow(true) , 3000)
@@ -206,13 +193,13 @@ const ReggaeBlues = () => {
                             }
                             };
 
-                            const artistNameEl = useRef(null);
-                                 artistNameEl.current = [];
-                                     const artistNameToEl = (el) => {
-                                     if (el && !artistNameEl.current.includes(el)) {
-                                         artistNameEl.current.push(el);
-                                     }
-                                     };
+                            // const artistNameEl = useRef(null);
+                            //      artistNameEl.current = [];
+                            //          const artistNameToEl = (el) => {
+                            //          if (el && !artistNameEl.current.includes(el)) {
+                            //              artistNameEl.current.push(el);
+                            //          }
+                            //          };
 
                                      const musicBoxEl = useRef(null);
                                           musicBoxEl.current = [];
@@ -234,37 +221,37 @@ const ReggaeBlues = () => {
                                         
                                         
                                                     <div className='bg-inherit text-white flex flex-col lg:flex-row'>
-                                                        <div className='sidebar-sm lg:hidden'>
-                                                            <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
-                                                        </div>
-                                        
-                                                        <div className='sidebar-lg hidden lg:flex flex-col'>
-                                                            <div className='flex flex-col justify-between bg-opacity-[50%] bg-[#262A2D] mx-4 w-[4vw] rounded-[50px] py-4'>
-                                                                {options.map((option, index) => {
-                                                                        return (
-                                                                            <> 
-                                                                                <Link to={option.navigate}>
-                                                                                    <div key={option.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                                                        <img src={option.img} alt='dashboard tab icon'  className='stroke-black mx-auto w-[40px]' />
-                                                                                    </div>
-                                                                                </Link>
-                                                                            </>
-                                                                        )
-                                                                    })}
-                                                            </div>
-                                        
-                                    <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
+                                                    <div className='sidebar-sm lg:hidden'>
+                    <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
+                </div>
+
+                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                    <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
+                        {options.map((option, index) => {
+                                return (
+                                    <> 
+                                        <Link to={option.navigate}>
+                                            <div key={option.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
+                                                <option.img  className='stroke-black mx-auto w-[40px] hover:scale-[1.2]' style={{color: option.color}} />
+                                            </div>
+                                        </Link>
+                                    </>
+                                )
+                            })}
+                    </div>
+
+                    <div className='flex flex-col justify-between mt-3 bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] my-4 py-4'>
                         
                                        
                                         <Link to='/profile'>
                                         <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                                                <BsFillPersonFill  className='mx-auto w-[40px] hover:scale-[1.2]' style={{color: '#52514E'}} />
                                             </div>
                                         </Link>
 
                                         <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
                                             <div className='flex cursor-pointer'>
-                                                <img src={logoutIcon} alt="logout icon"/>
+                                                <RiLogoutBoxRFill   className='ml-1 hover:scale-[1.2]' style={{color: '#52514E'}} />
                                             </div>
                                             {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
                                         </div>
@@ -296,7 +283,7 @@ const ReggaeBlues = () => {
                                                                             console.log(imageEl.current)
                                                                             console.log(audioEl.current[index])
                                                                             console.log(musicNameEl.current[index])
-                                                                            console.log(artistNameEl.current[index])
+                                                                            // console.log(artistNameEl.current[index])
                                                                             console.log(releases[currentSongIndex].name)
                                                                             // musicBoxEl.current[0].style.display = 'none'
                                                                             // musicBoxEl.current[0].style.scale = '0'

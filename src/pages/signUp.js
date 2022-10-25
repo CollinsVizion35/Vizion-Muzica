@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AppPass } from '../contexts/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
 // import Otp from './otp-page';
 import { auth } from '../firebase';
-import { updateProfile, updatePhoneNumber } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import { UseAuth } from '../contexts/AuthContext';
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore"; 
@@ -13,53 +13,51 @@ import ErrorModal from './error-modal';
 import {FaEye, FaEyeSlash} from 'react-icons/fa/index'
 
 
-import homeIcon from '../imgs/Home.svg';
-import collectionIcon from '../imgs/playlist.svg';
-import radioIcon from '../imgs/radio.svg';
-import musicVidIcon from '../imgs/videos.svg';
-import profileIcon from '../imgs/profile.svg';
-import logoutIcon from '../imgs/Logout.svg';
+
 import logo from '../imgs/logo.svg';
 
 
 import Sidebar from './sidebar';
 import '../index.css';
-import ProfileImg from './editProfileImg';
+// import ProfileImg from './editProfileImg';
 import LogoutModal from './logoutModal';
+
+
+
+import {MdHomeFilled, MdLibraryMusic} from 'react-icons/md/index'
+import {RiRadio2Fill, RiLogoutBoxRFill} from 'react-icons/ri/index'
+import {HiFilm} from 'react-icons/hi/index'
+import {BsFillPersonFill} from 'react-icons/bs/index'
 
 
 
 const options = [
     {
         id: 0,
-        img: homeIcon,
-        navigate: '/home'
+        img: MdHomeFilled,
+        navigate: '/home',
+        color: '#52514E'
     },
     {
         id: 1,
-        img: collectionIcon,
-        navigate: '/collection'
+        img: MdLibraryMusic,
+        navigate: '/collection',
+        color: '#52514E'
     },
     {
         id: 2,
-        img: radioIcon,
-        navigate: '/radio'
+        img: RiRadio2Fill,
+        navigate: '/radio',
+        color: '#52514E'
     },
     {
         id: 3,
-        img: musicVidIcon,
-        navigate: '/musicvideos'
+        img: HiFilm,
+        navigate: '/musicvideos',
+        color: '#52514E'
     }
 ];
 
-const options2 = [
-    {
-        id: 0,
-        img: profileIcon,
-        navigate: '/profile'
-    }
-
-];
 
 const SignUp = ({isOpen, setIsOpen}) => {
     const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -205,18 +203,18 @@ const SignUp = ({isOpen, setIsOpen}) => {
 
 
             <div className='bg-[#1D2123] text-white flex lg:flex-row flex-col'>
-                <div className='sidebar-sm lg:hidden'>
+            <div className='sidebar-sm lg:hidden'>
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col'>
+                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
                                     <> 
                                         <Link to={option.navigate}>
                                             <div key={option.id} className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={option.img} alt='dashboard tab icon'  className='stroke-black mx-auto w-[40px]' />
+                                                <option.img  className='stroke-black mx-auto w-[40px] hover:scale-[1.2]' style={{color: option.color}} />
                                             </div>
                                         </Link>
                                     </>
@@ -229,13 +227,13 @@ const SignUp = ({isOpen, setIsOpen}) => {
                                        
                                         <Link to='/profile'>
                                         <div className='flex my-3 w-1/2 mx-auto items-center cursor-pointer'>
-                                                <img src={profileIcon} alt='dashboard tab icon'  className='mx-auto w-[40px]' />
+                                                <BsFillPersonFill  className='mx-auto w-[40px] hover:scale-[1.2]' style={{color: '#FACD66'}} />
                                             </div>
                                         </Link>
 
                                         <div onClick={() => setShowLogoutModal(true)}  className='flex items-center mx-auto w-1/2 my-3 cursor-pointer'>
                                             <div className='flex cursor-pointer'>
-                                                <img src={logoutIcon} alt="logout icon"/>
+                                                <RiLogoutBoxRFill   className='ml-1 hover:scale-[1.2]' style={{color: '#52514E'}} />
                                             </div>
                                             {showLogoutModal === true && <LogoutModal showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
                                         </div>

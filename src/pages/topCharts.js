@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { AppPass } from '../contexts/AppContext';
+import React from 'react';
+// import { AppPass } from '../contexts/AppContext';
 import {FaRegHeart, FaHeart} from 'react-icons/fa/index'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
@@ -13,23 +13,7 @@ import '../index.css';
 
 const TopChart = () => {
 
-    const {token,
-        setToken,
-        releases, 
-        setReleases,
-        currentSongIndex, 
-        setCurrentSongIndex,
-        nextSongIndex, 
-        setNextSongIndex,
-        isPlaying, 
-        setIsPlaying,
-        duration, 
-        setDuration,
-        currentTime, 
-        setCurrentTime,
-        percentage, 
-        setPercentage,
-        getCurrDuration,} = AppPass()
+   
     
 
     return (

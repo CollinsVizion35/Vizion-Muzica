@@ -12,7 +12,6 @@ import {TbMenu, TbSearch} from 'react-icons/tb/index'
 
 import Logout from "./logout";
 import { Link } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
 
 const options = [
     {

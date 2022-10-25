@@ -7,27 +7,10 @@ import { AppPass } from '../contexts/AppContext';
 
 function PlayerControls(props) {
 
-  const {token,
-    setToken,
-    releases, 
-    setReleases,
-    currentSongIndex, 
-    setCurrentSongIndex,
-    nextSongIndex, 
-    setNextSongIndex,
-    isPlaying, 
-    setIsPlaying,
-    duration, 
-    setDuration,
-    currentTime, 
-    setCurrentTime,
+  const {
     percentage, 
     setPercentage,
-    audioEl,
-    playerAudioRef,
-    playerImageRef,
-    playerNameRef,
-    playerArtistRef} = AppPass()
+    playerAudioRef,} = AppPass()
 
     const onChange = (e) => {
       const audio = playerAudioRef.current

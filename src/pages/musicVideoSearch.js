@@ -1,7 +1,6 @@
 /* eslint-disable no-sequences */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import notAvailable from '../imgs/No-Photo-Available.jpg'
 // import { AppPass } from '../contexts/AppContext';
 
 

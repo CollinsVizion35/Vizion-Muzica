@@ -6,27 +6,8 @@ import { AppPass } from '../contexts/AppContext';
 function VolumeControls() {
   
   
-  const {token,
-    setToken,
-    releases, 
-    setReleases,
-    currentSongIndex, 
-    setCurrentSongIndex,
-    nextSongIndex, 
-    setNextSongIndex,
-    isPlaying, 
-    setIsPlaying,
-    duration, 
-    setDuration,
-    currentTime, 
-    setCurrentTime,
-    percentage, 
-    setPercentage,
-    audioEl,
+  const {
     playerAudioRef,
-    playerImageRef,
-    playerNameRef,
-    playerArtistRef,
     volume, 
     setVolume,} = AppPass()
 

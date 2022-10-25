@@ -13,14 +13,14 @@ const PageNotFound = () => {
   return (
     <>
         <div className='text-center flex h-screen'>
-            <div id='page-wrap' className='w-full bg-white'>
+            <div id='page-wrap' className='w-full bg-[#1D2123]'>
                 
                 <div className='flex'>
                     <div className='w-full py-8 px-8 md:px-14'>
                         <div className='flex flex-col justify-center items-center min-h-screen'>
-                            <h4 className='text-lg md:text-xl lg:text-3xl text-[#7772D3] mb-8 font-semibold font-Nunito'>404 Page Not Found</h4>
-                            <Link to='/'>
-                                <p className='underline decoration-[#7772D3] text-[#7772D3] text-base'>Go back to sign in</p>
+                            <h4 className='text-lg md:text-xl lg:text-3xl text-[#FACD66] mb-8 font-semibold font-Nunito'>404 Page Not Found</h4>
+                            <Link to='/profile'>
+                                <p className='underline decoration-[#FACD66] text-[#FACD66] text-base'>Go back to sign in</p>
                             </Link>
                         </div>
                     </div>

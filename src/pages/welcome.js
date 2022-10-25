@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import {SiSpotify} from 'react-icons/si/index'
 import '../index.css'
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'
-import notAvailable from '../imgs/No-Photo-Available.jpg'
+import {  useNavigate } from 'react-router-dom';
+// import axios from 'axios'
+// import notAvailable from '../imgs/No-Photo-Available.jpg'
 import { Fade, JackInTheBox, Slide } from "react-awesome-reveal";
 
 import logo from '../imgs/logo.svg';

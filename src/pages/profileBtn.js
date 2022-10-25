@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppPass } from '../contexts/AppContext';
 import { UseAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import { onSnapshot, collection, doc, query, where, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import defaultImg from '../imgs/No-Photo-Available.jpg'
+// import defaultImg from '../imgs/No-Photo-Available.jpg'
 
 const InfoProfileImg = () => {
-  const { user, uploadPicture } = UseAuth();
-  const firstNameInput = user?.displayName;
-  const emailInput = user?.email;
+  const { user } = UseAuth();
   
-  const {phone, fName, lName, cert, eMail} = AppPass();
+  const {eMail} = AppPass();
 
   console.log(eMail);
 
-  const [firstName, setFirstName] = useState(firstNameInput);
-  const [lastName, setLastName] = useState('');
 
   const [usersInfo, setUsersInfo] = useState([])
   useEffect(() => {

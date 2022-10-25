@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { AppPass } from '../contexts/AppContext';
+import React, { useState, useEffect } from 'react';
 import { UseAuth } from '../contexts/AuthContext';
-import { Link } from 'react-router-dom';
-import { onSnapshot, collection, doc, query, where, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Profile from './profile';
 import SignIn from './signIn';
@@ -12,14 +10,7 @@ const SignUpProfile = ({isOpen, setIsOpen}) => {
 
     const {user} = UseAuth()
 
-    const {
-      none,
-      setNone,
-      flex,
-      setFlex,
-      signInRef,
-      signUpRef,
-      profileRef} = AppPass()
+   
 
   const [usersId, setUsersId] = useState('')
   useEffect(() => {
@@ -42,9 +33,9 @@ const SignUpProfile = ({isOpen, setIsOpen}) => {
 
   setTimeout(() => setIsOpen(false), 2000);
 
-  const handleButtonClick = () => {
-      setIsOpen(!isOpen);
-  }
+  // const handleButtonClick = () => {
+  //     setIsOpen(!isOpen);
+  // }
 
   
  

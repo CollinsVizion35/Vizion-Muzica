@@ -3,24 +3,9 @@ import { AppPass } from '../contexts/AppContext';
 
 function PlayerDetails() {
 
-  const {token,
-    setToken,
+  const {
     releases, 
-    setReleases,
     currentSongIndex, 
-    setCurrentSongIndex,
-    nextSongIndex, 
-    setNextSongIndex,
-    isPlaying, 
-    setIsPlaying,
-    duration, 
-    setDuration,
-    currentTime, 
-    setCurrentTime,
-    percentage, 
-    setPercentage,
-    getCurrDuration,
-    playerAudioRef,
     playerImageRef,
     playerNameRef,
     playerArtistRef} = AppPass()

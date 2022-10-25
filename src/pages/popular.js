@@ -7,34 +7,25 @@ import notAvailable from '../imgs/No-Photo-Available.jpg'
 import { AppPass } from '../contexts/AppContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Howl, Howler} from 'howler';
 
 
 
 
 const Popular = () => {
 
-    const {token,
-        setToken,
+    const {
         releases, 
-        setReleases,
         currentSongIndex, 
-        setCurrentSongIndex,
-        nextSongIndex, 
-        setNextSongIndex,
         isPlaying, 
         setIsPlaying,
-        duration, 
         setDuration,
-        currentTime, 
-        setCurrentTime,
-        percentage, 
-        setPercentage,
         getCurrDuration,
         playerAudioRef,
         playerImageRef,
         playerNameRef,
         playerArtistRef} = AppPass()
+
+        
 
         const audioEl = useRef(null);
         audioEl.current = [];
@@ -120,27 +111,27 @@ const Popular = () => {
 
 
 
-  const [iplay, setIplay] = useState(false)
+//   const [iplay, setIplay] = useState(false)
 
-  const oy = (src) => {
-    console.log(audioEl.current);
-    // let sound = new Howl ({
-    //     src,
-    //     html5: true
-    // })
+//   const oy = (src) => {
+//     console.log(audioEl.current);
+//     // let sound = new Howl ({
+//     //     src,
+//     //     html5: true
+//     // })
 
     
        
-    // if (isPlaying) {
-    //     sound.pause();
-    //     setIsPlaying(false);
-    //   } else {
-    //     sound.play();
-    //     setIsPlaying(true);
-    //   }
-    //   console.log("isPlaying", isPlaying);
+//     // if (isPlaying) {
+//     //     sound.pause();
+//     //     setIsPlaying(false);
+//     //   } else {
+//     //     sound.play();
+//     //     setIsPlaying(true);
+//     //   }
+//     //   console.log("isPlaying", isPlaying);
 
-  }
+//   }
     
  
 

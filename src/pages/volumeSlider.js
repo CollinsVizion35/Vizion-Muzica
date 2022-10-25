@@ -5,7 +5,7 @@ import { AppPass } from '../contexts/AppContext';
 
 function VolumeSlider({ percentage = 0, onChange }) {
 
-    const { audioEl, volume, setVolume} = AppPass()
+    const {  volume} = AppPass()
 
   const [position, setPosition] = useState(0)
   const [marginLeft, setMarginLeft] = useState(0)
@@ -17,7 +17,7 @@ function VolumeSlider({ percentage = 0, onChange }) {
 
 
   useEffect(() => {
-    const rangeWidth = rangeRef.current.getBoundingClientRect().width
+    // const rangeWidth = rangeRef.current.getBoundingClientRect().width
     const thumbWidth = thumbRef.current.getBoundingClientRect().width
     const centerThumb = (thumbWidth / 100) * volume * 1900
     const centerProgressBar =
