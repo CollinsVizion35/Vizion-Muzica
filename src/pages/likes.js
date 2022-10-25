@@ -210,11 +210,11 @@ const Likes = () => {
 
                 <div className='lg:flex lg:flex-row grid grid-cols-2 mx-auto lg:mx-[0px]'>
                     <Link to='/collection'>
-                        <button className=' w-max px-3 py-2 rounded-[20px] border border-[#4F524F] text-[#4F524F] mr-2'>My Collection</button>
+                        <button className='lg:w-max w-[45vw] px-3 py-2 rounded-[20px] border border-[#4F524F] text-[#4F524F] mr-2'>My Collection</button>
                     </Link>
                     
                     <Link to='/likes'>
-                    <button className=' w-max px-3 py-2 rounded-[20px]  text-[#4F524F] bg-[#FACD66]'>Likes</button>
+                    <button className='lg:w-max w-[45vw] px-3 py-2 rounded-[20px] text-[#4F524F] bg-[#FACD66]'>Likes</button>
                     </Link>
                 </div>
 

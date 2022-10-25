@@ -59,15 +59,6 @@ const options = [
     }
 ];
 
-const options2 = [
-    {
-        id: 0,
-        img: BsFillPersonFill,
-        navigate: '/profile',
-        color: '#52514E'
-    }
-
-];
 
 const releases = [
     {

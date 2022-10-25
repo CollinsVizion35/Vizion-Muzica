@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { FaVolumeUp} from 'react-icons/fa/index'
 
-import {SiSpotify} from 'react-icons/si/index'
-import axios from 'axios'
+// import {SiSpotify} from 'react-icons/si/index'
+// import axios from 'axios'
 import { AppPass } from '../contexts/AppContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -257,8 +257,8 @@ const NewReleases = () => {
     
     
                       <Swiper  
-                        spaceBetween={20} 
-                        slidesPerView={1.3}
+                        spaceBetween={10} 
+                        slidesPerView={1.8}
     
                         className='block lg:hidden md:hidden'
                         >
@@ -298,7 +298,7 @@ const NewReleases = () => {
                                                         setDuration(e.currentTarget.duration.toFixed(2))
                                                         }}
                                                     ></audio>
-                                                    <img className='w-[200px] h-[150px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
+                                                    <img className='w-[150px] h-[150px] rounded-[20px]' title={release.img}  ref={imageToEl} src={release.img} alt="artist"/>
                                                     <h2 ref={musicNameToEl} className='text-white text-[1.1em]'>{release.name}</h2>
                                                         <h5 ref={artistNameToEl} className='text-white text-[.8em]'>{release.artist}</h5>
                                                     </div>

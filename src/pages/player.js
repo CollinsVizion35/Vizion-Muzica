@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import PlayerControls from './playerControls';
 import PlayerDetails from './playerDetails';
 import VolumeControls from './volumeControls';
@@ -90,11 +90,14 @@ function Player() {
         <div className='flex flex-row items-center justify-between mx-2 my-4'>
             <PlayerDetails 
                 song={releases[currentSongIndex]}
+
+                className="w-[50%]"
             />
             <PlayerControls 
                 isPlaying={isPlaying} 
                 setIsPlaying={setIsPlaying} 
                 SkipSong={SkipSong}
+                className="w-[50%]"
             />
             <VolumeControls/>
         </div>
