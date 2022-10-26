@@ -68,7 +68,7 @@ const MusicVideos = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -103,7 +103,7 @@ const MusicVideos = () => {
 
             
 
-            <div className='Body lg:w-[9/10] lg:mt-[-4em] pr-3'>
+            <div className='Body lg:w-[9/10] lg:mt-[-4em] lg:ml-[5vw] pl-8'>
                 <MusicVideoSearch/>
             </div>
             

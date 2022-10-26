@@ -191,6 +191,10 @@ export const AppContextPage = ({children}) => {
   });
 
 
+  // shuffle an repeat state
+  const [repeat, setRepeat] = useState(false)
+  const [shuffle, setShuffle] = useState(false)
+
   useEffect(() => {
    localStorage.setItem('none', JSON.stringify(none));
    localStorage.setItem('flex', JSON.stringify(flex));
@@ -231,6 +235,10 @@ export const AppContextPage = ({children}) => {
               setPercentage,
               volume, 
               setVolume,
+              repeat, 
+              setRepeat,
+              shuffle, 
+              setShuffle,
               getCurrDuration,
               audioEl,
               playerAudioRef,

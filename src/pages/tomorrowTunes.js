@@ -206,7 +206,7 @@ const Tomorrow = () => {
 
 
                                               return (
-                                                <div  className='bg-opacity-[0%]' style={{backgroundImage: "url('tomorrowstunes.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                                                <div  className='bg-opacity-[0%]' style={{backgroundImage: "url('tomorrowTunes.svg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}}>
                                                 <div className='bg-[#1A1E1F] bg-opacity-[50%] text-white flex flex-col min-h-screen'>
                                                     <div className='bg-[#1A1E1F] bg-opacity-[50%] p-4 w-screen pb-8 hidden lg:flex flex-row'>
                                                         <img src={logo} alt='home icon' className='mr-2'/>
@@ -220,7 +220,7 @@ const Tomorrow = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -255,9 +255,9 @@ const Tomorrow = () => {
                                         
                                                     
                                         
-                                                    <div className='goldenAge flex flex-col lg:w-full w-[90vw] mx-auto'>
+                                                    <div className='goldenAge flex flex-col lg:w-full w-[90vw] mx-auto lg:ml-[5vw] pl-8'>
                                                         <div className='flex lg:flex-row flex-col mb-8 items-end items-left'>
-                                                            <img src='tomorrowstunes.jpg' alt='music cover' className='lg:w-[250px] lg:h-[250px] lg:mr-4 w-full mx-auto rounded-[20px]'/>
+                                                            <img src='tomorrowTunes.svg' alt='music cover' className='lg:w-[250px] lg:h-[250px] lg:mr-4 w-full mx-auto rounded-[20px]'/>
                                                             <div className='flex flex-col lg:w-[100%] w-[95vw] mx-auto mt-4 lg:mt-[0px]'>
                                                                 <div className='text-bold text-[1.4em] text-[#829D9D] mb-2'>Tomorrow's Tunes</div>
                                                                 <div className=' text-[0.8em] mb-1 lg:w-[40vw] w-[90vw]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</div>

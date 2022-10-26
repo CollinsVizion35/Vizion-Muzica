@@ -80,7 +80,7 @@ const Profile = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -113,7 +113,7 @@ const Profile = () => {
                                     </div>
                 </div>
 
-                <div className='flex items-center mx-auto lg:mt-[0em] mt-[2em]'>
+                <div className='flex items-center mx-auto lg:mt-[0em] mt-[2em] pl-8'>
                     <div className='w-full text-left py-8 px-12 md:px-14'>
                         <h2 className='font-Poppins text-[#95B4B3] text-2xl font-bold hidden lg:block mb-[5em]'>Profile</h2>
                         <div className='flex flex-col justify-center items-center'>

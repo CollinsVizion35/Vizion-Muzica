@@ -89,7 +89,7 @@ const TopChart = () => {
                     >
 
 
-            <div className='hidden w-[95vw] h-[30vh] lg:flex flex-row'>
+            <div className='hidden w-[95vw] h-[30vh] lg:flex'>
 
             <SwiperSlide>
             <Link to='/goldenage'>

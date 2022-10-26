@@ -15,7 +15,9 @@ function Player() {
         setDuration,
         setCurrentTime,
         setPercentage,
-        playerAudioRef,} = AppPass()
+        playerAudioRef,
+        repeat, 
+        shuffle, } = AppPass()
 
         useEffect(() => {
           if (isPlaying) {
@@ -61,7 +63,7 @@ function Player() {
 
                 return temp;
             })
-        } else {
+        } else if (!fowards) {
             setCurrentSongIndex(() => {
                 let temp = currentSongIndex;
                 temp--;
@@ -72,6 +74,27 @@ function Player() {
 
                 return temp;
             })
+        } 
+        if (!repeat) {
+          setCurrentSongIndex(() => {
+            
+            const audio = playerAudioRef.current
+            audio.currentTime = (0)
+            setPercentage(0)
+            let temp = currentSongIndex;
+            
+            return temp;
+        })
+        }
+
+        if (!shuffle && fowards) {
+          setCurrentSongIndex(() => {
+            let temp = currentSongIndex;
+            temp = Math.floor(Math.random() * releases.length - 1);
+
+
+            return temp;
+        })
         }
     }
     

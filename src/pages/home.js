@@ -75,7 +75,7 @@ const Home = () => {
 
     return (
         <>
-            <div className='bg-[#1D2123] text-white flex flex-col h-max overflow-y-auto'>
+            <div className='bg-[#1D2123] text-white flex flex-col h-max overflow-y-auto overflow-x-hidden'>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
 
@@ -88,7 +88,7 @@ const Home = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -123,7 +123,7 @@ const Home = () => {
 
             
 
-            <div className='Body w-[9/10] mb-[8em]'>
+            <div className='Body w-[9/10] mb-[8em] lg:ml-[5vw]'>
                 <div className='flex flex-col lg:flex-row'>
                     <Header/>
                     <TopChart/>

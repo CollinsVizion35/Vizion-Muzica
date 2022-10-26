@@ -109,7 +109,7 @@ function Radio() {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -146,7 +146,7 @@ function Radio() {
 
             
             
-    <div className='flex flex-col items-center justify-center text-center float-right lg:w-[90vw] bg-[#1D2123] text-white'>
+    <div className='flex flex-col lg:ml-[5vw] pl-8 items-center justify-center text-center float-right lg:w-[90vw] bg-[#1D2123] text-white'>
         <div className='text-3xl p-2 lg:mt-[-2em] text-[#FACD66] mr-[10vw]'>
             VizMuz <span className='text-[#95B4B3]'>Radio</span>
         </div>

@@ -169,7 +169,7 @@ const Collection = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -204,7 +204,7 @@ const Collection = () => {
 
             
 
-            <div className='Body w-[9/10] flex flex-col'>
+            <div className='Body w-[9/10] flex flex-col lg:ml-[5vw] pl-8'>
 
                 <div className='lg:flex lg:flex-row grid grid-cols-2 mx-auto lg:mx-[0px]'>
                 <Link to='/collection'>

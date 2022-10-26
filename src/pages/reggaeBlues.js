@@ -225,7 +225,7 @@ const ReggaeBlues = () => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
@@ -260,7 +260,7 @@ const ReggaeBlues = () => {
                                         
                                                     
                                         
-                                                    <div className='goldenAge flex flex-col lg:w-full w-[90vw] mx-auto'>
+                                                    <div className='goldenAge flex flex-col lg:w-full w-[90vw] mx-auto lg:ml-[5vw] pl-8'>
                                                         <div className='flex lg:flex-row flex-col mb-8 items-end items-left'>
                                                             <img src='marley.webp' alt='music cover' className='lg:w-[250px] lg:h-[250px] lg:mr-4 w-full mx-auto rounded-[20px]'/>
                                                             <div className='flex flex-col lg:w-[100%] w-[95vw] mx-auto mt-4 lg:mt-[0px]'>

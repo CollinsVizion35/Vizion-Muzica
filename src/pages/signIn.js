@@ -62,7 +62,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
     });
     const [error, setError] = useState(false);
     const navigate = useNavigate();
-    const { signIn } = UseAuth();
+    const { signIn, user } = UseAuth();
     const rememberMeRef = useRef();
 
     const {
@@ -86,10 +86,15 @@ const SignIn = ({isOpen, setIsOpen}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setNone('none')
-        setFlex('flex')
-        signInRef.current.style.display = none
-        profileRef.current.style.display = flex
+
+        if (user) {
+            setNone('none')
+            setFlex('flex')
+            signUpRef.current.style.display = 'none'
+            signInRef.current.style.display = none
+            profileRef.current.style.display = flex
+        }
+        
         try {
             await signIn(email, password.password)
             .then(() => setError(false))
@@ -130,7 +135,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
 
   return (
     <>
-        <div  ref={signInRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen'  style={{display: none}}>
+        <div  ref={signInRef} className='bg-[#1D2123] text-white flex flex-col min-h-screen'  style={{display: 'none'}}>
             <div className='p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between'>
                 <img src={logo} alt='home icon'/>
             </div>
@@ -141,7 +146,7 @@ const SignIn = ({isOpen, setIsOpen}) => {
                     <Sidebar  pageWrapId={"page-wrap"} outerContainerId={"App"} />
                 </div>
 
-                <div className='sidebar-lg hidden lg:flex flex-col mt-[2em]'>
+                <div className='sidebar-lg fixed hidden lg:flex flex-col mt-[2em]'>
                     <div className='flex flex-col justify-between bg-[#1A1E1F] mx-4 w-[4vw] rounded-[50px] py-4'>
                         {options.map((option, index) => {
                                 return (
