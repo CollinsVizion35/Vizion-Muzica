@@ -12,35 +12,42 @@ import {TbMenu, TbSearch} from 'react-icons/tb/index'
 
 import Logout from "./logout";
 import { Link } from "react-router-dom";
+import SearchArtist from "./searchArtist";
+
+
+import {MdHomeFilled, MdLibraryMusic} from 'react-icons/md/index'
+import {RiRadio2Fill, RiLogoutBoxRFill} from 'react-icons/ri/index'
+import {HiFilm} from 'react-icons/hi/index'
+import {BsFillPersonFill} from 'react-icons/bs/index'
 
 const options = [
     {
         id: 0,
-        img: homeIcon,
+        img: MdHomeFilled,
         text: "Home",
         navigate: '/home'
     },
     {
         id: 1,
-        img: collectionIcon,
+        img: MdLibraryMusic,
         text: "My Collections",
         navigate: '/collection'
     },
     {
         id: 2,
-        img: radioIcon,
+        img: RiRadio2Fill,
         text: "Radio",
         navigate: '/radio'
     },
     {
         id: 3,
-        img: musicVidIcon,
+        img: HiFilm,
         text: "Music Videos",
         navigate: '/musicvideos'
     },
     {
         id: 4,
-        img: profileIcon,
+        img: BsFillPersonFill,
         text: "Profile",
         navigate: '/profile'
     }
@@ -50,6 +57,7 @@ const Sidebar = ({props}) => {
     const [showLogoutModal, setShowLogoutModal] = useState(false);
     const [showSideBar, setShowSideBar] = useState(true);
     const tabRef = useRef();
+    const searchRef = useRef();
 
     const handleLogout = () => {
         setShowLogoutModal(true);
@@ -59,8 +67,12 @@ const Sidebar = ({props}) => {
     const handleShowSideBar = () => {
         setShowSideBar(false);
     }
+    const handleShowSearchBar = event => {
+        setIsSearchActive(current => !current);
+    }
 
     const [isActive, setIsActive] = useState(false);
+    const [isSearchActive, setIsSearchActive] = useState(false);
 
     const handleClick = event => {
         setIsActive(current => !current);
@@ -77,27 +89,31 @@ const Sidebar = ({props}) => {
                 <img src={logo} alt='home icon'/>
             </div>
 
-            <button className="w-[10vw] float-right">
+            <button onClick={handleShowSearchBar} className="w-[10vw] float-right">
                 <TbSearch/>
             </button>
         </div>
-    <div showSideBar={showSideBar} ref={tabRef} left {...props} className={!isActive ? 'hidden' : 'block absolute top-0 left-0 w-[100vw] mt-[4em] bg-[#1D2123] text-white z-[999999]'}>
+
+        <div  ref={searchRef} className={!isSearchActive ? 'hidden' : 'block x-[999999999999]'}>
+            <SearchArtist/>
+        </div>
+    <div showSideBar={showSideBar} ref={tabRef} left {...props} className={!isActive ? 'hidden' : 'block absolute top-0 left-0 w-[100vw] h-screen mt-[4em] bg-[#1D2123] text-white z-[999999]'}>
             {options.map((option) => {
                 return (
                     <> 
-                    <div className="flex flex-col my-8 pl-4 bg-#1A1E1F">
+                    <div className="flex flex-col my-8 pl-4">
                             <Link className="flex justify-start  items-center pl-2" to={option.navigate}>
-                                <img className="mr-5" src={option.img} alt="dashboard tab icon" />
+                            <option.img className="mr-5"/>
                                 <p onClick={handleShowSideBar} className='text-base'>{option.text}</p>
                             </Link>
                         </div> 
                     </>
                 )
             })}
-            <div className="flex justify-center cursor-pointer mt-36">
-                <div onClick={handleLogout} className="flex justify-start text-center pl-10">
-                    <img className="mr-5" src={logoutIcon} alt="log out icon"/>
-                    <p className="text-[#7772D3] font-Poppins text-base">Logout</p>
+            <div className="flex pl-4 cursor-pointer mt-8">
+                <div onClick={handleLogout} className="flex justify-start text-center pl-2">
+                    <RiLogoutBoxRFill className="mr-5"/>
+                    <p className=" font-Poppins text-base">Logout</p>
                 </div>
                 {showLogoutModal === true && <Logout showLogoutModal={showLogoutModal} setShowLogoutModal={setShowLogoutModal}/>}
             </div>
