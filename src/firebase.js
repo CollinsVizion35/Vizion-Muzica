@@ -2,22 +2,21 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage"
-
+import { getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC5jefq9l0z_emYXirA2eJGroLIQgrnqqA",
-    authDomain: "vizion-muzica.firebaseapp.com",
-    projectId: "vizion-muzica",
-    storageBucket: "vizion-muzica.appspot.com",
-    messagingSenderId: "180905565173",
-    appId: "1:180905565173:web:177d458d50b54f87985ebc",
-    measurementId: "G-PPSPCYJTQF"
-  };
+  apiKey: "AIzaSyC5jefq9l0z_emYXirA2eJGroLIQgrnqqA",
+  authDomain: "vizion-muzica.firebaseapp.com",
+  projectId: "vizion-muzica",
+  storageBucket: "vizion-muzica.appspot.com",
+  messagingSenderId: "180905565173",
+  appId: "1:180905565173:web:177d458d50b54f87985ebc",
+  measurementId: "G-PPSPCYJTQF",
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -30,10 +29,7 @@ export const db = getFirestore(app);
 
 export const storage = getStorage(app);
 
-
 export default app;
-
-
 
 // // const app = firebase.initializeApp({
 
