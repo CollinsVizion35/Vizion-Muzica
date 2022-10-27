@@ -4,24 +4,24 @@ import { AuthContextProvider } from './contexts/AuthContext';
 import { AppContextPage } from './contexts/AppContext';
 import PageNotFound from './pages/404';
 import { UseAuth } from './contexts/AuthContext';
-import Home from './pages/home';
-import NewReleases from './pages/newRelease'
-import SearchArtist from './pages/searchArtist'
+import Home from './pages/Home/home';
+import NewReleases from './pages/Home/newRelease'
+import SearchArtist from './pages/Home/searchArtist'
 import Welcome from './pages/welcome'
-import Player from './pages/popular'
-import Header from './pages/header';
-import MusicVideos from './pages/musicVideo';
-import Radio from './pages/radio';
-import SignIn from './pages/signIn';
-import SignUp from './pages/signUp';
-import EditProfile from './pages/editProfile';
-import Profile from './pages/profile';
-import GoldenAge from './pages/goldenAge';
-import SignUpProfile from './pages/signUpProfile';
-import ReggaeBlues from './pages/reggaeBlues';
-import Tomorrow from './pages/tomorrowTunes';
-import Collection from './pages/collection';
-import Likes from './pages/likes';
+import Player from './pages/Home/popular'
+import Header from './pages/Home/header';
+import MusicVideos from './pages/MultiMedia/musicVideo';
+import Radio from './pages/MultiMedia/radio';
+// import SignIn from './pages/signIn';
+// import SignUp from './pages/signUp';
+import EditProfile from './pages/Profile/editProfile';
+// import Profile from './pages/profile';
+import GoldenAge from './pages/Charts/goldenAge';
+import SignUpProfile from './pages/SignInUp/signUpProfile';
+import ReggaeBlues from './pages/Charts/reggaeBlues';
+import Tomorrow from './pages/Charts/tomorrowTunes';
+import Collection from './pages/Collection/collection';
+import Likes from './pages/Collection/likes';
 
 
 

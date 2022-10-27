@@ -43,8 +43,10 @@ const Welcome = () => {
                     </div>
 
                     <Fade delay={2000}>
-                    <a className='bg-[#1DD05D] cursor-pointer p-2 px-4 rounded-[50px] w-max flex flex-row gap-2 items-center' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Authorize with <SiSpotify/>
-                    </a>
+                    <div className='bg-[#1DD05D] cursor-pointer p-2 px-4 rounded-[50px] w-max flex flex-row gap-2 items-center' 
+                    // href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+                    >Authorized with <SiSpotify className='pl-2'/>
+                    </div>
                     </Fade>
                 </div>
             </div>
