@@ -122,13 +122,13 @@ const releases = [
 
 const popular = [
   {
-      id: 0,
+      id: 3,
       artist: 'Poco Lee Ft Hotkid',
       img: otilo,
       name: 'Otilo',
       audio: 'Poco_Lee_-_Otilo_Izz_Gone_feat_Hotkid__@BaseNaija.com.mp3'
   }, {
-      id: 1,
+      id: 8,
       artist: 'Blaqbonez',
       img: blaqUni,
       name: 'Back in Uni',
@@ -140,13 +140,13 @@ const popular = [
       name: 'Organise',
       audio: 'Asake_-_Organise_@BaseNaija.com.mp3'
   }, {
-    id: 3,
+    id: 0,
     artist: 'Kizz Daniel',
     img: coughKizz,
     name: 'Cough (Odo)',
     audio: 'Kizz_Daniel_-_Cough_Odo__@BaseNaija.com.mp3'
 }, {
-  id: 4,
+  id: 9,
   artist: 'Asake',
   img: mMWTV,
   name: 'Dull',
@@ -158,25 +158,25 @@ const popular = [
   name: 'Rush',
   audio: 'Ayra_Starr_-_Rush_@BaseNaija.com.mp3'
 }, {
-  id: 6,
+  id: 7,
   artist: 'Pheelz Ft Davido',
   img: PheelzElec,
   name: 'Electricity',
   audio: 'Pheelz_-_Electricity_feat_Davido__@BaseNaija.com.mp3'
 }, {
-  id: 7,
+  id: 6,
   artist: 'Chris Brown Ft Wizkid',
   img: breezy,
   name: 'Call Me Everyday',
   audio: 'Chris_Brown_-_Call_Me_Everyday_feat_Wizkid__@BaseNaija.com.mp3'
 }, {
-  id: 8,
+  id: 1,
   artist: 'Rema',
   img: remaRaves,
   name: 'Are You There',
   audio: 'Rema_-_Are_You_There__@BaseNaija.com.mp3'
 }, {
-  id: 9,
+  id: 4,
   artist: 'P-Square',
   img: pSquare,
   name: 'Ihe Geme',
