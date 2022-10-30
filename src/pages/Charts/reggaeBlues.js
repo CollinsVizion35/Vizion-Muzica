@@ -405,39 +405,38 @@ const ReggaeBlues = () => {
                           4:12
                         </h2>
                         <div key={release.name}>
-                        <button 
-                        onClick={() => {
-                          
-                            toggleOpen(release.name);
-                        }}
-                        >
-                          <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" 
-                            
-                          />
-                        </button>
+                          <button
+                            onClick={() => {
+                              toggleOpen(release.name);
+                            }}
+                          >
+                            <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" />
+                          </button>
 
                           {isOpen[release.name] && (
-                          <button
-                          ref={downloadToEl} 
-                          onClick={() => {
-                            fetch(release.audio).then(response => {
-                              response.blob().then(blob => {
-                                  // Creating new object of PDF file
-                                  const fileURL = window.URL.createObjectURL(blob);
-                                  // Setting various property values
-                                  let alink = document.createElement('a');
-                                  alink.href = fileURL;
-                                  alink.download = release.audio;
-                                  alink.click();
-                              })
-                          })
-                          }}
-                           className={'block p-2 rounded-[10px] top-0 right-0 mt-4 mr-4 w-max absolute bg-[#fff] text-[#000] text-[.8em]'}
-                           >
-                            Download
+                            <button
+                              ref={downloadToEl}
+                              onClick={() => {
+                                fetch(release.audio).then((response) => {
+                                  response.blob().then((blob) => {
+                                    // Creating new object of PDF file
+                                    const fileURL =
+                                      window.URL.createObjectURL(blob);
+                                    // Setting various property values
+                                    let alink = document.createElement("a");
+                                    alink.href = fileURL;
+                                    alink.download = release.audio;
+                                    alink.click();
+                                  });
+                                });
+                              }}
+                              className={
+                                "block p-2 rounded-[10px] top-0 right-0 lg:mt-4 mt-12 lg:mr-4 mr-3 w-max absolute bg-[#fff] text-[#000] lg:text-[.8em] text-[.5em]"
+                              }
+                            >
+                              Download
                             </button>
-                            
-                        )}
+                          )}
                         </div>
                       </div>
                     </div>
