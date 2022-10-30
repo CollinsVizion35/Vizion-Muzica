@@ -213,6 +213,23 @@ const Tomorrow = () => {
     }
   };
 
+  const downloadEl = useRef(null);
+  downloadEl.current = [];
+  const downloadToEl = (el) => {
+    if (el && !downloadEl.current.includes(el)) {
+      downloadEl.current.push(el);
+    }
+  };
+  
+  const [isOpen, setIsOpen] = useState({});
+
+  const toggleOpen = (name) => {
+    setIsOpen({
+      ...isOpen,
+      [name]: !isOpen[name],
+    });
+  };
+
   return (
     <div
       className="bg-opacity-[0%] overflow-x-hidden"
@@ -390,7 +407,41 @@ const Tomorrow = () => {
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
                           4:12
                         </h2>
-                        <BsThreeDotsVertical className="text-[#FACD66] lg:w-[50%]" />
+                        <div key={release.name}>
+                        <button 
+                        onClick={() => {
+                          
+                            toggleOpen(release.name);
+                        }}
+                        >
+                          <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" 
+                            
+                          />
+                        </button>
+
+                          {isOpen[release.name] && (
+                          <button
+                          ref={downloadToEl} 
+                          onClick={() => {
+                            fetch(release.audio).then(response => {
+                              response.blob().then(blob => {
+                                  // Creating new object of PDF file
+                                  const fileURL = window.URL.createObjectURL(blob);
+                                  // Setting various property values
+                                  let alink = document.createElement('a');
+                                  alink.href = fileURL;
+                                  alink.download = release.audio;
+                                  alink.click();
+                              })
+                          })
+                          }}
+                           className={'block p-2 rounded-[10px] top-0 right-0 mt-4 mr-4 w-max absolute bg-[#fff] text-[#000] text-[.8em]'}
+                           >
+                            Download
+                            </button>
+                            
+                        )}
+                        </div>
                       </div>
                     </div>
                   </>

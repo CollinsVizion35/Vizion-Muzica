@@ -218,10 +218,15 @@ const GoldenAge = () => {
       downloadEl.current.push(el);
     }
   };
-const [isActive, setIsActive] = useState(false);
-// const handleClick = (event) => {
-    
-//   };
+
+  const [isOpen, setIsOpen] = useState({});
+
+  const toggleOpen = (name) => {
+    setIsOpen({
+      ...isOpen,
+      [name]: !isOpen[name],
+    });
+  };
 
   return (
     <div
@@ -399,13 +404,20 @@ const [isActive, setIsActive] = useState(false);
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
                           4:13
                         </h2>
+
+                        <div key={release.name}>
                         <button 
+                        onClick={() => {
+                          
+                            toggleOpen(release.name);
+                        }}
                         >
-                          <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]"  onClick={(e) => {
-                            // setIsActive((downloadEl) => !downloadEl);
-                            // downloadEl.current[index].style.display = 'none' ? downloadEl.current[index].style.display = 'block' : downloadEl.current[index].style.display = 'none'
-                            downloadEl.current[index].style.display = 'block' ? downloadEl.current[index].style.display = 'none' : downloadEl.current[index].style.display = 'none' 
-                          }}/>
+                          <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" 
+                            
+                          />
+                        </button>
+
+                          {isOpen[release.name] && (
                           <button
                           ref={downloadToEl} 
                           onClick={() => {
@@ -421,8 +433,13 @@ const [isActive, setIsActive] = useState(false);
                               })
                           })
                           }}
-                           className={'hidden p-2 rounded-[10px] top-0 right-0 mt-4 mr-4 w-max absolute bg-[#fff] text-[#000] text-[.8em]'}>Download</button>
-                        </button>
+                           className={'block p-2 rounded-[10px] top-0 right-0 mt-4 mr-4 w-max absolute bg-[#fff] text-[#000] text-[.8em]'}
+                           >
+                            Download
+                            </button>
+                            
+                        )}
+                        </div>
                       </div>
                     </div>
                   </>
