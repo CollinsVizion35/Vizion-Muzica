@@ -10,7 +10,7 @@ import {
   BsFillPlayCircleFill,
   BsHeartFill,
 } from "react-icons/bs/index";
-import { MdCollectionsBookmark } from "react-icons/md/index";
+import { MdClose, MdCollectionsBookmark } from "react-icons/md/index";
 
 import { Link } from "react-router-dom";
 import Sidebar from "../Home/sidebar";
@@ -411,7 +411,7 @@ const GoldenAge = () => {
                               toggleOpen(release.name);
                             }}
                           >
-                            <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" />
+                           {isOpen[release.name] ? <MdClose  className="text-[#FACD66] lg:w-[100%] z-[100]" /> : <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]" />}
                           </button>
 
                           {isOpen[release.name] && (
