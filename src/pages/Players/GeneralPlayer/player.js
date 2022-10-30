@@ -21,11 +21,16 @@ function Player() {
 
   useEffect(() => {
     if (isPlaying) {
+      setTimeout(() => {
       playerAudioRef.current.play();
+    }, 500);
     } else {
-      playerAudioRef.current.pause();
+      
+        playerAudioRef.current.pause();
     }
   });
+
+  
 
   const getCurrDuration = (e) => {
     const percent = (

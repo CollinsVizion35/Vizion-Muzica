@@ -21,9 +21,12 @@ function Player() {
 
   useEffect(() => {
     if (isPlaying) {
+      setTimeout(() => {
       playerAudio2Ref.current.play();
+    }, 500);
     } else {
-      playerAudio2Ref.current.pause();
+      
+        playerAudio2Ref.current.pause();
     }
   });
 
