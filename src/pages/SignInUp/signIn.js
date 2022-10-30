@@ -122,7 +122,7 @@ const SignIn = ({ isOpen, setIsOpen }) => {
     <>
       <div
         ref={signInRef}
-        className="bg-[#1D2123] text-white flex flex-col min-h-screen"
+        className="bg-[#1D2123] text-white flex flex-col min-h-screen overflow-x-hidden"
         style={{ display: "none" }}
       >
         <div className="p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between">

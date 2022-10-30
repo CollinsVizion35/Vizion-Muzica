@@ -55,7 +55,7 @@ const Profile = () => {
     <>
       <div
         ref={profileRef}
-        className="bg-[#1D2123] text-white flex flex-col min-h-screen"
+        className="bg-[#1D2123] text-white flex flex-col min-h-screen overflow-x-hidden"
         style={{ display: flex }}
       >
         <div className="p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between">
@@ -118,7 +118,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="flex items-center mx-auto lg:mt-[0em] mt-[2em] pl-8">
+          <div className="flex items-center mx-auto lg:mt-[0em] mt-[2em] lg:pl-8">
             <div className="w-full text-left py-8 px-12 md:px-14">
               <h2 className="font-Poppins text-[#95B4B3] text-2xl font-bold hidden lg:block mb-[5em]">
                 Profile

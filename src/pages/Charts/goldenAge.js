@@ -151,6 +151,7 @@ const GoldenAge = () => {
     nextSongIndex,
     isPlaying,
     setIsPlaying,
+    duration,
     setDuration,
     getCurrDuration,
     playerAudio6Ref,
@@ -209,6 +210,18 @@ const GoldenAge = () => {
       musicBoxEl.current.push(el);
     }
   };
+
+  const downloadEl = useRef(null);
+  downloadEl.current = [];
+  const downloadToEl = (el) => {
+    if (el && !downloadEl.current.includes(el)) {
+      downloadEl.current.push(el);
+    }
+  };
+const [isActive, setIsActive] = useState(false);
+// const handleClick = (event) => {
+    
+//   };
 
   return (
     <div
@@ -336,7 +349,6 @@ const GoldenAge = () => {
                         // musicBoxEl.current[0].style.display = 'none'
                         // musicBoxEl.current[0].style.scale = '0'
                         console.log(isPlaying);
-
                         console.log(playerAudio6Ref.current.currentSrc);
                         console.log(playerImage6Ref.current.outerHTML);
                         console.log(imageEl);
@@ -385,9 +397,32 @@ const GoldenAge = () => {
                       </div>
                       <div className="lg:w-[21%] w-[10%] flex flex-col lg:flex-row text-center items-center">
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
-                          4:12
+                          4:13
                         </h2>
-                        <BsThreeDotsVertical className="text-[#FACD66] lg:w-[50%]" />
+                        <button 
+                        >
+                          <BsThreeDotsVertical className="text-[#FACD66] lg:w-[100%] z-[100]"  onClick={(e) => {
+                            // setIsActive((downloadEl) => !downloadEl);
+                            // downloadEl.current[index].style.display = 'none' ? downloadEl.current[index].style.display = 'block' : downloadEl.current[index].style.display = 'none'
+                            downloadEl.current[index].style.display = 'block' ? downloadEl.current[index].style.display = 'none' : downloadEl.current[index].style.display = 'none' 
+                          }}/>
+                          <button
+                          ref={downloadToEl} 
+                          onClick={() => {
+                            fetch(release.audio).then(response => {
+                              response.blob().then(blob => {
+                                  // Creating new object of PDF file
+                                  const fileURL = window.URL.createObjectURL(blob);
+                                  // Setting various property values
+                                  let alink = document.createElement('a');
+                                  alink.href = fileURL;
+                                  alink.download = release.audio;
+                                  alink.click();
+                              })
+                          })
+                          }}
+                           className={'hidden p-2 rounded-[10px] top-0 right-0 mt-4 mr-4 w-max absolute bg-[#fff] text-[#000] text-[.8em]'}>Download</button>
+                        </button>
                       </div>
                     </div>
                   </>

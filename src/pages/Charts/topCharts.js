@@ -80,12 +80,12 @@ const TopChart = () => {
           </Link>
         </div>
 
-        <Swiper spaceBetween={10} slidesPerView={1.3} className="lg:hidden">
-          <div className="hidden w-[70vw] h-[30vh] lg:flex">
+        <Swiper spaceBetween={5} slidesPerView={1.2} className="lg:hidden">
+          <div className="hidden w-max h-[30vh] lg:flex">
             <SwiperSlide>
               <Link to="/goldenage">
-                <div className="mb-2 w-[70vw] bg-[#1A1E1F] h-[30vh] rounded-[20px]  group hover:bg-[#FACD66]">
-                  <div className="p-3 w-[70vw] h-[30vh] flex flex-row justify-around items-center">
+                <div className=" w-[95vw] bg-[#1A1E1F] h-[30vh] rounded-[20px]  group hover:bg-[#FACD66]">
+                  <div className="p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center">
                     <div className="flex flex-col">
                       <img
                         className="rounded-[10px] w-[50px] h-[50px] mr-[3%]"
@@ -112,8 +112,8 @@ const TopChart = () => {
 
             <SwiperSlide>
               <Link to="/reggaeblues">
-                <div className="mb-2 w-[70vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]">
-                  <div className="p-3 w-[70vw] h-[30vh] flex flex-row justify-around items-center">
+                <div className=" w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]">
+                  <div className="p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center">
                     <div className="flex flex-col">
                       <img
                         className="rounded-[10px] w-[50px] h-[50px] mr-[3%]"
@@ -140,8 +140,8 @@ const TopChart = () => {
 
             <SwiperSlide>
               <Link to="/tomorrow">
-                <div className="mb-2 w-[70vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]">
-                  <div className="p-3 w-[70vw] h-[30vh] flex flex-row justify-around items-center">
+                <div className=" w-[95vw] h-[30vh] bg-[#1A1E1F] rounded-[20px] cursor-pointer group hover:bg-[#FACD66]">
+                  <div className="p-3 w-[95vw] h-[30vh] flex flex-row justify-around items-center">
                     <div className="flex flex-col">
                       <img
                         className="rounded-[10px] w-[50px] h-[50px] mr-[3%]"

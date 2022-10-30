@@ -51,6 +51,41 @@ function Player() {
         return temp;
       });
     }
+
+    
+
+    if (!shuffle && percent > 99.5) {
+      setCurrentSongIndex(() => {
+        let temp = currentSongIndex;
+        temp = Math.floor(Math.random() * releases.length - 1);
+
+        return temp;
+      });
+    }
+
+    if (!repeat  && percent > 99.5) {
+      setCurrentSongIndex(() => {
+        const audio = playerAudioRef.current;
+        audio.currentTime = 0;
+        setPercentage(0);
+        let temp = currentSongIndex;
+
+        return temp;
+      });
+    }
+
+    
+    if (!repeat && !shuffle && percent > 99.5) {
+      setCurrentSongIndex(() => {
+        const audio = playerAudioRef.current;
+        audio.currentTime = 0;
+        setPercentage(0);
+        let temp = currentSongIndex;
+
+        return temp;
+      });
+    }
+
   };
 
   const SkipSong = (fowards = true) => {
@@ -77,6 +112,17 @@ function Player() {
         return temp;
       });
     }
+
+    if (!shuffle && fowards) {
+      setCurrentSongIndex(() => {
+        let temp = currentSongIndex;
+        temp = Math.floor(Math.random() * releases.length - 1);
+
+        return temp;
+      });
+    } 
+
+    
     if (!repeat) {
       setCurrentSongIndex(() => {
         const audio = playerAudioRef.current;
@@ -87,15 +133,8 @@ function Player() {
         return temp;
       });
     }
+    
 
-    if (!shuffle && fowards) {
-      setCurrentSongIndex(() => {
-        let temp = currentSongIndex;
-        temp = Math.floor(Math.random() * releases.length - 1);
-
-        return temp;
-      });
-    }
   };
 
   return (

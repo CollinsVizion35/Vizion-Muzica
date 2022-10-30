@@ -50,7 +50,7 @@ const EditProfile = () => {
 
   return (
     <>
-      <div className="bg-[#1D2123] text-white flex flex-col min-h-screen">
+      <div className="bg-[#1D2123] text-white flex flex-col min-h-screen overflow-x-hidden">
         <div className="p-4 w-[40vw] pb-8 hidden lg:flex flex-row justify-between">
           <img src={logo} alt="home icon" />
         </div>
@@ -111,7 +111,7 @@ const EditProfile = () => {
             </div>
           </div>
 
-          <div className="flex items-center mx-auto pl-8">
+          <div className="flex items-center mx-auto  lg:pl-8">
             <div className="w-full text-left py-8 px-12 md:px-14">
               <h2 className="font-Poppins text-[#95B4B3] text-2xl font-bold hidden lg:block">
                 Edit Info

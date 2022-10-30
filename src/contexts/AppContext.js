@@ -628,8 +628,8 @@ export const AppContextPage = ({children}) => {
 
 
   // shuffle an repeat state
-  const [repeat, setRepeat] = useState(false)
-  const [shuffle, setShuffle] = useState(false)
+  const [repeat, setRepeat] = useState(true)
+  const [shuffle, setShuffle] = useState(true)
 
   useEffect(() => {
    localStorage.setItem('none', JSON.stringify(none));
