@@ -53,6 +53,7 @@ const options = [
 
 const SignUp = ({ isOpen, setIsOpen }) => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const { user } = UseAuth();
 
   const [name, setName] = useState(() => {
     // getting stored value
@@ -105,16 +106,22 @@ const SignUp = ({ isOpen, setIsOpen }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setNone("none");
-    setFlex("flex");
 
-    signInRef.current.style.display = "none";
-    signUpRef.current.style.display = none;
-    profileRef.current.style.display = flex;
+    setTimeout(() => {
+      if (user.uid) {
+      setNone("none");
+      setFlex("flex");
+
+      signInRef.current.style.display = "none";
+      signUpRef.current.style.display = none;
+      profileRef.current.style.display = flex;
+    }
+    }, 5000);
+    
     try {
       await createUser(email, password.password);
       setError(false);
-      navigate("/profile");
+      // navigate("/profile");
       await addDoc(collection(db, "Users"), {
         name: nameRef.current.value,
         phone_number: phoneRef.current.value,

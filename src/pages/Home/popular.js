@@ -3,105 +3,22 @@ import { FaVolumeUp } from "react-icons/fa/index";
 
 // import {SiSpotify} from 'react-icons/si/index'
 // import axios from 'axios'
-// import notAvailable from '../../imgs/No-Photo-Available.jpg'
 import { AppPass } from "../../contexts/AppContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import otilo from "../../imgs/poco.jpeg";
-import mMWTV from "../../imgs/asake.jpeg";
-import rush from "../../imgs/ayra-starr.jpg";
-import remaRaves from "../../imgs/Rema-Rave-Roses.jpeg";
-import breezy from "../../imgs/Chris-Brown-Call-me-everyday.jpg";
-import pSquare from "../../imgs/p-square.jpeg";
-import coughKizz from "../../imgs/Kizz-Daniel-Cough.jpg";
-import blaqUni from "../../imgs/Blaqbonez-Back-To-Uni.jpeg";
-import PheelzElec from "../../imgs/electricity.png";
-
-const popular = [
-  {
-    id: 3,
-    artist: "Poco Lee Ft Hotkid",
-    img: otilo,
-    name: "Otilo",
-    audio: "Poco_Lee_-_Otilo_Izz_Gone_feat_Hotkid__@BaseNaija.com.mp3",
-  },
-  {
-    id: 8,
-    artist: "Blaqbonez",
-    img: blaqUni,
-    name: "Back in Uni",
-    audio: "Blaqbonez-JAE5-Back-In-Uni_@BaseNaija.com_.mp3",
-  },
-  {
-    id: 2,
-    artist: "Asake",
-    img: mMWTV,
-    name: "Organise",
-    audio: "Asake_-_Organise_@BaseNaija.com.mp3",
-  },
-  {
-    id: 0,
-    artist: "Kizz Daniel",
-    img: coughKizz,
-    name: "Cough (Odo)",
-    audio: "Kizz_Daniel_-_Cough_Odo__@BaseNaija.com.mp3",
-  },
-  {
-    id: 9,
-    artist: "Asake",
-    img: mMWTV,
-    name: "Dull",
-    audio: "Asake_-_Dull_@BaseNaija.com.mp3",
-  },
-  {
-    id: 5,
-    artist: "Ayra Starr",
-    img: rush,
-    name: "Rush",
-    audio: "Ayra_Starr_-_Rush_@BaseNaija.com.mp3",
-  },
-  {
-    id: 7,
-    artist: "Pheelz Ft Davido",
-    img: PheelzElec,
-    name: "Electricity",
-    audio: "Pheelz_-_Electricity_feat_Davido__@BaseNaija.com.mp3",
-  },
-  {
-    id: 6,
-    artist: "Chris Brown Ft Wizkid",
-    img: breezy,
-    name: "Call Me Everyday",
-    audio: "Chris_Brown_-_Call_Me_Everyday_feat_Wizkid__@BaseNaija.com.mp3",
-  },
-  {
-    id: 1,
-    artist: "Rema",
-    img: remaRaves,
-    name: "Are You There",
-    audio: "Rema_-_Are_You_There__@BaseNaija.com.mp3",
-  },
-  {
-    id: 4,
-    artist: "P-Square",
-    img: pSquare,
-    name: "Ihe Geme",
-    audio: "P-Square_-_Jaiye_Ihe_Geme__@BaseNaija.com.mp3",
-  },
-];
-
 const Popular = () => {
   const {
+    popular,
     currentSongIndex,
     isPlaying,
     setIsPlaying,
     setDuration,
     getCurrDuration,
-    playerAudio7Ref,
-    playerImage7Ref,
-    playerName7Ref,
-    playerArtist7Ref,
+    playerAudioRef,
+    playerImageRef,
+    playerNameRef,
+    playerArtistRef,
   } = AppPass();
 
   const audioEl = useRef(null);
@@ -203,7 +120,7 @@ const Popular = () => {
   return (
     <>
       <div className="flex flex-col bg-[#1D2123] lg:w-[90vw] w-[95vw] float-right px-4 text-white">
-        <h3 className="text-[1.3em] float-left p-3">Popular in your area.</h3>
+        <h3 className="text-[1.3em] float-left p-3">Popular in Your Area.</h3>
 
         <div className="flex flex-row justify-betweenw-screen py-4">
           <Swiper
@@ -216,7 +133,7 @@ const Popular = () => {
                 <SwiperSlide>
                   <>
                     <div
-                      key={release.name}
+                      key={index}
                       ref={musicBoxToEl}
                       onClick={() => {
                         console.log(imageEl.current);
@@ -228,22 +145,23 @@ const Popular = () => {
                         // musicBoxEl.current[0].style.scale = '0'
                         console.log(isPlaying);
 
-                        console.log(playerAudio7Ref.current.currentSrc);
-                        console.log(playerImage7Ref.current.outerHTML);
+                        console.log(playerAudioRef.current.currentSrc);
+                        console.log(playerImageRef.current.outerHTML);
                         console.log(imageEl);
-                        console.log(playerName7Ref.current.innerHTML);
-                        console.log(playerArtist7Ref.current.innerHTML);
+                        console.log(playerNameRef.current.innerHTML);
+                        console.log(playerArtistRef.current.innerHTML);
                         isPlaying === true
                           ? setIsPlaying(isPlaying)
                           : setIsPlaying(!isPlaying);
-                        playerAudio7Ref.current.src =
-                          audioEl.current[index].src;
-                        playerImage7Ref.current.src =
-                          imageEl.current[index].src;
-                        // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
-                        playerName7Ref.current.innerHTML =
+                        playerAudioRef.current.src = audioEl.current[index].src;
+                        playerImageRef.current.src = imageEl.current[index].src;
+                        console.log(audioSignEl.current[index]);
+                        console.log(audioSignEl.current);
+                        // !audioSignEl.current[index] === true ? audioSignEl.current.style.display = 'none' : audioSignEl.current.style.display = 'block'
+                        // audioSignEl.current[index].style.display = 'block'
+                        playerNameRef.current.innerHTML =
                           musicNameEl.current[index].innerHTML;
-                        playerArtist7Ref.current.innerHTML =
+                        playerArtistRef.current.innerHTML =
                           artistNameEl.current[index].innerHTML;
                       }}
                       className="flex flex-col relative text-left my-3 mx-auto cursor-pointer"
@@ -298,7 +216,7 @@ const Popular = () => {
                 <SwiperSlide>
                   <>
                     <div
-                      key={release.name}
+                      key={index}
                       ref={musicBoxToEl}
                       onClick={() => {
                         console.log(imageEl.current);
@@ -310,22 +228,20 @@ const Popular = () => {
                         // musicBoxEl.current[0].style.scale = '0'
                         console.log(isPlaying);
 
-                        console.log(playerAudio7Ref.current.currentSrc);
-                        console.log(playerImage7Ref.current.outerHTML);
+                        console.log(playerAudioRef.current.currentSrc);
+                        console.log(playerImageRef.current.outerHTML);
                         console.log(imageEl);
-                        console.log(playerName7Ref.current.innerHTML);
-                        console.log(playerArtist7Ref.current.innerHTML);
+                        console.log(playerNameRef.current.innerHTML);
+                        console.log(playerArtistRef.current.innerHTML);
                         isPlaying === true
                           ? setIsPlaying(isPlaying)
                           : setIsPlaying(!isPlaying);
-                        playerAudio7Ref.current.src =
-                          audioEl.current[index].src;
-                        playerImage7Ref.current.src =
-                          imageEl.current[index].src;
+                        playerAudioRef.current.src = audioEl.current[index].src;
+                        playerImageRef.current.src = imageEl.current[index].src;
                         // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
-                        playerName7Ref.current.innerHTML =
+                        playerNameRef.current.innerHTML =
                           musicNameEl.current[index].innerHTML;
-                        playerArtist7Ref.current.innerHTML =
+                        playerArtistRef.current.innerHTML =
                           artistNameEl.current[index].innerHTML;
                       }}
                       className="flex flex-col relative text-left my-3 mx-auto cursor-pointer"
@@ -380,7 +296,7 @@ const Popular = () => {
                 <SwiperSlide>
                   <>
                     <div
-                      key={release.name}
+                      key={index}
                       ref={musicBoxToEl}
                       onClick={() => {
                         console.log(imageEl.current);
@@ -392,22 +308,20 @@ const Popular = () => {
                         // musicBoxEl.current[0].style.scale = '0'
                         console.log(isPlaying);
 
-                        console.log(playerAudio7Ref.current.currentSrc);
-                        console.log(playerImage7Ref.current.outerHTML);
+                        console.log(playerAudioRef.current.currentSrc);
+                        console.log(playerImageRef.current.outerHTML);
                         console.log(imageEl);
-                        console.log(playerName7Ref.current.innerHTML);
-                        console.log(playerArtist7Ref.current.innerHTML);
+                        console.log(playerNameRef.current.innerHTML);
+                        console.log(playerArtistRef.current.innerHTML);
                         isPlaying === true
                           ? setIsPlaying(isPlaying)
                           : setIsPlaying(!isPlaying);
-                        playerAudio7Ref.current.src =
-                          audioEl.current[index].src;
-                        playerImage7Ref.current.src =
-                          imageEl.current[index].src;
+                        playerAudioRef.current.src = audioEl.current[index].src;
+                        playerImageRef.current.src = imageEl.current[index].src;
                         // audioSignEl.current[index] ? audioSignEl.current[index].style.display = 'block' : audioSignEl.current[index].style.display = 'none'
-                        playerName7Ref.current.innerHTML =
+                        playerNameRef.current.innerHTML =
                           musicNameEl.current[index].innerHTML;
-                        playerArtist7Ref.current.innerHTML =
+                        playerArtistRef.current.innerHTML =
                           artistNameEl.current[index].innerHTML;
                       }}
                       className="flex flex-col relative text-left my-3 mx-auto cursor-pointer"

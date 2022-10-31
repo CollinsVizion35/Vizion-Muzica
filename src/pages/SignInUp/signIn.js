@@ -74,18 +74,21 @@ const SignIn = ({ isOpen, setIsOpen }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (user) {
-      setNone("none");
-      setFlex("flex");
-      signUpRef.current.style.display = "none";
-      signInRef.current.style.display = none;
-      profileRef.current.style.display = flex;
-    }
+    setTimeout(() => {
+      if (user.uid) {
+        setNone("none");
+        setFlex("flex");
+        signUpRef.current.style.display = "none";
+        signInRef.current.style.display = none;
+        profileRef.current.style.display = flex;
+      }
+    }, 5000);
+    
 
     try {
       await signIn(email, password.password)
         .then(() => setError(false))
-        .then(() => navigate("/profile"));
+        // .then(() => navigate("/profile"));
     } catch (e) {
       setError(true);
       console.log(e.message);
