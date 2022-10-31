@@ -24,7 +24,7 @@ const TopChart = () => {
                 <div className="flex flex-col w-[80%] mr-[3%]">
                   <div className="text-[1em]">Golden age of 80s</div>
                   <div className="text-[.6em] opacity-[70%]">Sean swadder</div>
-                  <div className="text-[.7em]">2:34:45</div>
+                  <div className="text-[.7em]">0:41:00</div>
                 </div>
                 <div className="w-[10%]">
                   <div className="border border-gray p-2 rounded-[50%] w-fit">
@@ -46,7 +46,7 @@ const TopChart = () => {
                 <div className="flex flex-col w-[80%] mr-[3%]">
                   <div className="text-[1em]">Reggae “n” blues</div>
                   <div className="text-[.6em] opacity-[70%]">Dj YK mule</div>
-                  <div className="text-[.7em]">1:02:42</div>
+                  <div className="text-[.7em]">0:41:20</div>
                 </div>
                 <div className="w-[10%]">
                   <div className="border border-gray p-2 rounded-[50%] w-fit">
@@ -68,7 +68,7 @@ const TopChart = () => {
                 <div className="flex flex-col w-[80%] mr-[3%]">
                   <div className="text-[1em]">Tomorrow’s tunes</div>
                   <div className="text-[.6em] opacity-[70%]">Obi Datti</div>
-                  <div className="text-[.7em]">2:01:25</div>
+                  <div className="text-[.7em]">0:37:57</div>
                 </div>
                 <div className="w-[10%]">
                   <div className="border border-gray p-2 rounded-[50%] w-fit">
@@ -97,7 +97,7 @@ const TopChart = () => {
                         <div className="text-[.6em] opacity-[70%]">
                           Sean swadder
                         </div>
-                        <div className="text-[.7em]">2:34:45</div>
+                        <div className="text-[.7em]">0:41:00</div>
                       </div>
                     </div>
                     <div className="w-[10%]">
@@ -125,7 +125,7 @@ const TopChart = () => {
                         <div className="text-[.6em] opacity-[70%]">
                           Dj YK mule
                         </div>
-                        <div className="text-[.7em]">1:02:42</div>
+                        <div className="text-[.7em]">0:41:20</div>
                       </div>
                     </div>
                     <div className="w-[10%]">
@@ -153,7 +153,7 @@ const TopChart = () => {
                         <div className="text-[.6em] opacity-[70%]">
                           Obi Datti
                         </div>
-                        <div className="text-[.7em]">2:01:25</div>
+                        <div className="text-[.7em]">0:37:57</div>
                       </div>
                     </div>
                     <div className="w-[10%]">

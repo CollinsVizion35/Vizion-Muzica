@@ -277,7 +277,7 @@ const reggaes = [
   artist: 'Lucky Dube',
   img: prisoner,
   name: 'Prisoner',
-  audio: 'lucky dube - prisoner.mp3',
+  audio: 'Lucky_Dube_-_Prisoner.mp3',
   album: 'Prisoner'
 }, {
   id: 5,
@@ -305,7 +305,7 @@ const reggaes = [
   artist: 'Lucky Dube',
   img: prisoner,
   name: 'War and Crime',
-  audio: 'lucky dube   war and  crime.mp3',
+  audio: 'Lucky_Dube_-_War_Crime.mp3',
   album: 'Prisoner'
 }, {
   id: 9,
@@ -376,21 +376,23 @@ const golden = [
   name: "Pac's life",
   audio: "2pac-Pac's life.mp3",
   album: "Pac's Life"
-}, {
+}, 
+{
   id: 7,
   artist: 'Celine Dion',
   img: fallingIntoYou,
   name: 'I love you',
-  audio: 'CELINE DION-I love you.mp3',
+  audio: 'https://mp3gaga.com/wp-content/uploads/2022/02/Mp3gaga.com-Celine-Dion-I-Love-You.mp3',
   album: 'Falling into You'
 }, {
   id: 8,
   artist: 'Celine Dion',
   img: collection2000,
   name: 'In His Touch',
-  audio: 'Celine_Dion_In_His_Touch.mp3',
+  audio: 'https://mp3gaga.com/wp-content/uploads/2022/02/Mp3gaga.com-Celine-Dion-In-His-Touch.mp3',
   album: '2000 Collection'
-}, {
+}, 
+{
   id: 9,
   artist: 'Michael Jackson',
   img: usa4Africa,

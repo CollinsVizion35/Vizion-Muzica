@@ -67,6 +67,7 @@ const reggaes = [
     name: "Is This Love",
     audio: "Bob Marley - Is This Love.mp3",
     album: "Kaya",
+    durration: "3:21"
   },
   {
     id: 2,
@@ -75,6 +76,7 @@ const reggaes = [
     name: "I Shot The Sheriff",
     audio: "Bob Marley - I Shot The Sheriff.mp3",
     album: "Singles",
+    durration: "7:12"
   },
   {
     id: 3,
@@ -83,14 +85,16 @@ const reggaes = [
     name: "Buffalo Soldier",
     audio: "Bob Marley -Buffalo Soldier.mp3",
     album: "Singles",
+    durration: "2:43"
   },
   {
     id: 4,
     artist: "Lucky Dube",
     img: prisoner,
     name: "Prisoner",
-    audio: "lucky dube - prisoner.mp3",
+    audio: "Lucky_Dube_-_Prisoner.mp3",
     album: "Prisoner",
+    durration: "4:13"
   },
   {
     id: 5,
@@ -99,6 +103,7 @@ const reggaes = [
     name: "Freedom Fighters",
     audio: "lucky dube  fredom fighters.mp3",
     album: "House of Exile",
+    durration: "3:28"
   },
   {
     id: 6,
@@ -107,6 +112,7 @@ const reggaes = [
     name: "Three Little Birds",
     audio: "Bob Marley- don't worry about a thing.mp3",
     album: "Exodus",
+    durration: "3:01"
   },
   {
     id: 7,
@@ -115,14 +121,16 @@ const reggaes = [
     name: "Crazy World",
     audio: "lucky dube  crazy world.mp3",
     album: "House of Exile",
+    durration: "3:25"
   },
   {
     id: 8,
     artist: "Lucky Dube",
     img: prisoner,
     name: "War and Crime",
-    audio: "lucky dube   war and  crime.mp3",
+    audio: "Lucky_Dube_-_War_Crime.mp3",
     album: "Prisoner",
+    durration: "4:34"
   },
   {
     id: 9,
@@ -131,6 +139,7 @@ const reggaes = [
     name: "No Woman No Cry",
     audio: "Bob_Marley_No_Woman_No_Cry.mp3",
     album: "Natty Dread",
+    durration: "3:37"
   },
   {
     id: 10,
@@ -139,6 +148,7 @@ const reggaes = [
     name: "Soul Taker",
     audio: "lucky dube 5ve soul 2aker.mp3",
     album: "Soul Taker",
+    durration: "5:46"
   },
 ];
 
@@ -315,7 +325,7 @@ const ReggaeBlues = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis
                 </div>
-                <div className="text-[0.7em] mb-6">11 songs ~ 16 hrs+</div>
+                <div className="text-[0.7em] mb-6">11 songs ~ 41mins+</div>
                 <div className="flex items-center flex-row">
                   <button
                     className="rounded-[20px] w-max p-2 bg-[#262A2D] text-[.7em] lg:text-[1em] flex flex-row mr-3 items-center"
@@ -402,7 +412,7 @@ const ReggaeBlues = () => {
                       </div>
                       <div className="lg:w-[21%] w-[10%] flex flex-col lg:flex-row text-center items-center">
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
-                          4:12
+                          {release.durration}
                         </h2>
                         <div key={release.name}>
                           <button

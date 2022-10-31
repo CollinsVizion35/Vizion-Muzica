@@ -67,6 +67,7 @@ const golden = [
     name: "The Lost Children",
     audio: "The Lost Children.mp3",
     album: "Invincible",
+    durration: "3:59"
   },
   {
     id: 1,
@@ -75,6 +76,7 @@ const golden = [
     name: "Life Goes On",
     audio: "2Pac - Life Goes On.mp3",
     album: "All Eyez on Me",
+    durration: "5:02"
   },
   {
     id: 2,
@@ -83,6 +85,7 @@ const golden = [
     name: "Dangerous",
     audio: "Michael Jackson - Dangerous (1995) _ Studio Version _.mp3",
     album: "Dangerous",
+    durration: "6:57"
   },
   {
     id: 3,
@@ -91,6 +94,7 @@ const golden = [
     name: "Earth Song",
     audio: "Michael Jackson - Earth Song.mp3",
     album: "HIStory: Past, Present and Future, Book I",
+    durration: "6:46"
   },
   {
     id: 4,
@@ -99,6 +103,7 @@ const golden = [
     name: "Drove all night",
     audio: "Celine Dion-Drove all night.mp3",
     album: "2000 Collection",
+    durration: "3:59"
   },
   {
     id: 5,
@@ -107,6 +112,7 @@ const golden = [
     name: "Sleeping Child",
     audio: "Michael Learns- Sleeping Child.mp3",
     album: "Colours",
+    durration: "3:33"
   },
   {
     id: 6,
@@ -115,22 +121,25 @@ const golden = [
     name: "Pac's life",
     audio: "2pac-Pac's life.mp3",
     album: "Pac's Life",
+    durration: "3:37"
   },
   {
     id: 7,
     artist: "Celine Dion",
     img: fallingIntoYou,
     name: "I love you",
-    audio: "CELINE DION-I love you.mp3",
+    audio: "https://mp3gaga.com/wp-content/uploads/2022/02/Mp3gaga.com-Celine-Dion-I-Love-You.mp3",
     album: "Falling into You",
+    durration: "5:30"
   },
   {
     id: 8,
     artist: "Celine Dion",
     img: collection2000,
     name: "In His Touch",
-    audio: "Celine_Dion_In_His_Touch.mp3",
+    audio: "https://mp3gaga.com/wp-content/uploads/2022/02/Mp3gaga.com-Celine-Dion-In-His-Touch.mp3",
     album: "2000 Collection",
+    durration: "3:56"
   },
   {
     id: 9,
@@ -139,6 +148,7 @@ const golden = [
     name: "We are the world",
     audio: "MICHEAL JACKSON =  USA for Africa {We are the world}.mp3",
     album: "Singles",
+    durration: "7:07"
   },
 ];
 
@@ -316,7 +326,7 @@ const GoldenAge = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis
                 </div>
-                <div className="text-[0.7em] mb-6">10 songs ~ 16 hrs+</div>
+                <div className="text-[0.7em] mb-6">8 songs ~ 41 mins+</div>
                 <div className="flex items-center flex-row">
                   <button
                     className="rounded-[20px] w-max p-2 bg-[#262A2D] text-[.7em] lg:text-[1em] flex flex-row mr-3 items-center"
@@ -402,7 +412,7 @@ const GoldenAge = () => {
                       </div>
                       <div className="lg:w-[21%] w-[10%] flex flex-col lg:flex-row text-center items-center">
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
-                          4:13
+                          {release.durration}
                         </h2>
 
                         <div key={release.name}>

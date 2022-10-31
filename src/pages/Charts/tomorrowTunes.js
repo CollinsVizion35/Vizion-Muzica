@@ -70,6 +70,7 @@ const tTunes = [
     audio:
       "[Waploaded]_Billie_Eilish_-_Bad_Guy_Remix_feat_Justin_Bieber-1563035495.mp3",
     album: "Singles",
+    durration: "3:15"
   },
   {
     id: 1,
@@ -78,6 +79,7 @@ const tTunes = [
     name: "The Box",
     audio: "02 The Box - (SongsLover.com).mp3",
     album: "Please Excuse Me for Being Antisocial",
+    durration: "3:33"
   },
   {
     id: 2,
@@ -86,6 +88,7 @@ const tTunes = [
     name: "Homicide",
     audio: "02. Homicide (feat. Eminem) - (SongsLover.com).mp3",
     album: "Confessions of a Dangerous Mind",
+    durration: "4:06"
   },
   {
     id: 3,
@@ -94,6 +97,7 @@ const tTunes = [
     name: "Backstreet Freestyle",
     audio: "03 - Backstreet Freestyle.mp3",
     album: "good kid, m.A.A.d city",
+    durration: "3:33"
   },
   {
     id: 4,
@@ -102,6 +106,7 @@ const tTunes = [
     name: "Trollz",
     audio: "6ix9ine & Nicki Minaj - TROLLZ (NetNaija.com).mp3",
     album: "TattleTales",
+    durration: "3:24"
   },
   {
     id: 5,
@@ -110,6 +115,7 @@ const tTunes = [
     name: "24K Magic",
     audio: "24K Magic - Bruno Mars (Lyrics).mp3",
     album: "XXIVK Magic",
+    durration: "3:46"
   },
   {
     id: 6,
@@ -118,6 +124,7 @@ const tTunes = [
     name: "Zero",
     audio: "Chris Brown - Zero.mp3",
     album: "Royalty",
+    durration: "3:38"
   },
   {
     id: 7,
@@ -126,6 +133,7 @@ const tTunes = [
     name: "iRobot",
     audio: "Jon%20Bellion%20-%20iRobot%20(The%20Human%20Condition)-2.mp3",
     album: "The Human Condition",
+    durration: "3:30"
   },
   {
     id: 8,
@@ -134,6 +142,7 @@ const tTunes = [
     name: "Isis",
     audio: "Joyner Lucas - Isis (feat. Logic) - (SongsLover.com).mp3",
     album: "ADHD",
+    durration: "3:57"
   },
   {
     id: 9,
@@ -142,6 +151,7 @@ const tTunes = [
     name: "Sicko Mode",
     audio: "Travis-Scott-ft-Drake-Sicko-Mode.mp3",
     album: "Astroworld",
+    durration: "5:15"
   },
 ];
 
@@ -318,7 +328,7 @@ const Tomorrow = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis
                 </div>
-                <div className="text-[0.7em] mb-6">10 songs ~ 16 hrs+</div>
+                <div className="text-[0.7em] mb-6">10 songs ~ 37 mins+</div>
                 <div className="flex items-center flex-row">
                   <button
                     className="rounded-[20px] w-max p-2 bg-[#262A2D] text-[.7em] lg:text-[1em] flex flex-row mr-3 items-center"
@@ -405,7 +415,7 @@ const Tomorrow = () => {
                       </div>
                       <div className="lg:w-[21%] w-[10%] flex flex-col lg:flex-row text-center items-center">
                         <h2 className="lg:w-[50%] text-center text-white text-[.6em] md:text-[.7em] opacity-[70%]">
-                          4:12
+                          {release.durration}
                         </h2>
                         <div key={release.name}>
                           <button
